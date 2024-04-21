@@ -13,7 +13,7 @@ export default function IndexLayout({
 	useEffect(() => {
 		setTimeout(() => {
 			setLoaded(true);
-		}, 1500);
+		}, 750);
 	}, []);
 
 	const contentStyle: React.CSSProperties = {
