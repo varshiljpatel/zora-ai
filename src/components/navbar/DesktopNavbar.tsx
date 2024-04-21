@@ -9,7 +9,7 @@ const DesktopNavbar = () => {
 	return (
 		<div className="flex justify-between items-center">
 			<Link href={"/"}>
-				<Logo height={26} />
+				<Logo height={26} color="#000000" />
 			</Link>
 			<ul className="flex gap-x-8 font-medium items-center">
 				<li>

@@ -14,7 +14,7 @@ const MobileNavbar = (props: {
 		<>
 			<div className="flex z-50 relative justify-between items-center px-4">
 				<Link href={"/"} onClick={() => setIsVisible(false)}>
-					<Logo height={26} />
+					<Logo height={26} color="#000000" />
 				</Link>
 				<button
 					onClick={() => setIsVisible(!isVisible)}
