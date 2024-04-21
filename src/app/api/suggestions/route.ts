@@ -16,8 +16,14 @@ Note: Each question contains 10 tokens.`;
 export const runtime = "edge";
 
 export async function GET() {
+	const generationConfig = {
+		maxOutputTokens: 50,
+		temperature: 0.9,
+	};
+
 	const model: GenerativeModel = genAI.getGenerativeModel({
 		model: "gemini-pro",
+		generationConfig,
 	});
 
 	const response: GenerateContentResult = await model.generateContent(prompt);
