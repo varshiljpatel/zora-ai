@@ -49,7 +49,7 @@ const PromptArea = () => {
 	};
 
 	return (
-		<div className="w-full flex gap-x-4 sm:gap-x-8">
+		<div className="w-full p-4 flex gap-x-4 sm:gap-x-8">
 			<textarea
 				id="prommt"
 				value={promptValue}
