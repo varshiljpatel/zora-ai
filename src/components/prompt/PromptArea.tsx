@@ -56,7 +56,7 @@ const PromptArea = () => {
 				onChange={handleTextareaChange}
 				rows={3}
 				placeholder="Enter email purpose here..."
-				className="resize-none transition-all border-2 p-4 py-2 placeholder:text-black border-black bg-[#efefef] rounded-2xl min-h-28 w-full"
+				className="resize-none transition-all border-2 p-4 py-2 placeholder:text-black border-black bg-[#efefef] rounded-2xl min-h-24 w-full"
 			></textarea>
 			<IconButton
 				icon={<Send />}
