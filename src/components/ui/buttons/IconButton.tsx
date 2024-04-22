@@ -25,7 +25,7 @@ const IconButton = (props: IIconButton) => {
 
 	return (
 		<button
-			// style={{ width: `${width}px` }}
+		        style={{ backgroundColor: `${props.color}` }}
 			onClick={props.onClick}
 			className={`bg-[${props.color}] justify-center flex items-center gap-x-2 text-[14px] h-[42px] rounded-full transition-all text-white font-medium px-6`}
 		>
