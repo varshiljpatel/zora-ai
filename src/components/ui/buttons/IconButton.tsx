@@ -6,6 +6,7 @@ import { Hourglass as Spinner } from "react-loader-spinner";
 interface IIconButton {
 	icon?: any;
 	isLoading?: boolean;
+	color?: string | "#000000";
 	children?: React.ReactNode;
 	width?: number;
 	onClick?: React.MouseEventHandler;
