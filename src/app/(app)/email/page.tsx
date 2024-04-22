@@ -20,9 +20,9 @@ const EmailPage = () => {
 	}, []);
 
 	return (
-		<div className="p-8 h-dvh">
+		<div className="sm:p-8 p-4 h-dvh">
 			<Navbar />
-			<div className="sm:py-8 flex sm:gap-y-8 gap-y-4 flex-col items-end">
+			<div className="sm:py-8 p-4 flex sm:gap-y-8 gap-y-4 flex-col items-end">
 				<p dangerouslySetInnerHTML={{ __html: email }}></p>
 				<IconButton icon={<ContentCopySharp />}>COPY</IconButton>
 			</div>
