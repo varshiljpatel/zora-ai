@@ -34,13 +34,15 @@ const MobileNavbar = (props: {
 			>
 				{props.navList.map((navItem, index) => {
 					return (
+						<div key={index}>
 						<NavItem
 							onClick={() => setIsVisible(false)}
 							className="border-b-2 pb-1 border-black w-full border-dotted"
 							text={navItem.text}
 							path={navItem.path}
 						/>
-					);
+						</div>
+				);
 				})}
 			</div>
 		</>
