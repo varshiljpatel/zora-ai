@@ -59,8 +59,8 @@ const PromptArea = () => {
 				className="resize-none transition-all border-2 p-4 py-2 placeholder:text-black border-black bg-[#efefef] rounded-2xl min-h-24 w-full"
 			></textarea>
 			<IconButton
-				icon={<Send />}
-				color={promptValue.trim().length > 0 ? "#000000" : "#7f7f7f"}
+				icon={<Send fontSize="small" />}
+				color={promptValue.trim().length > 0 ? undefined : "#7f7f7f"}
 				onClick={handleOnClick}
 				isLoading={isLoading}
 			>

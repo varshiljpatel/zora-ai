@@ -7,7 +7,7 @@ const handleOnClick = () => {};
 
 const DesktopNavbar = () => {
 	return (
-		<div className="flex justify-between items-center">
+		<div className="flex w-full justify-between items-center">
 			<Link href={"/"}>
 				<Logo height={26} color="#000000" />
 			</Link>

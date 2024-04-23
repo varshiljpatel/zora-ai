@@ -29,10 +29,11 @@ export default function Home() {
 	}, []);
 
 	return (
-		<div className="h-dvh flex flex-col justify-between sm:p-8 p-4">
+		<div className="h-dvh flex flex-col justify-between p-4">
 			<Navbar />
-			<div className="w-full h-full overflow-scroll flex">
-				<div className="items-center h-full justify-around flex flex-col py-10 w-full">
+			<div style={scrollnone} 
+			className="w-full h-full overflow-scroll scroll-smooth flex">
+				<div className="w-full m-auto flex flex-col items-center gap-y-8">
 					<Vec1 height={250} />
 					<Suggestions suggestions={suggestions} />
 				</div>
@@ -40,4 +41,8 @@ export default function Home() {
 			<PromptArea />
 		</div>
 	);
+}
+
+const scrollnone : React.CSSProperties = {
+	scrollbarWidth: "none"
 }
