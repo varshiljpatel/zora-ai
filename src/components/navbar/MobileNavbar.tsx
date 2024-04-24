@@ -34,7 +34,7 @@ const MobileNavbar = (props: {
 			>
 				{props.navList.map((navItem, index) => {
 					return (
-						<div key={index} className="border-b-2 border-dotted border-black pb-1">
+						<div key={index} className="w-full border-b-2 border-dotted border-black pb-0.5">
 						<NavItem
 							onClick={() => setIsVisible(false)}
 							className="w-full"
