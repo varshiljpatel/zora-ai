@@ -28,7 +28,7 @@ const MobileNavbar = (props: {
 				</button>
 			</div>
 			<div
-				className={`w-full absolute top-0 bottom-0 right-0 left-0 z-10 bg-light flex flex-col items-start gap-y-6 p-8 pt-24 px-8 rounded-b-2xl ${
+				className={`w-full fixed top-0 bottom-0 right-0 left-0 z-10 bg-light flex flex-col items-start gap-y-6 p-8 pt-24 px-8 rounded-b-2xl ${
 					isVisible ? "h-full block" : "h-0 hidden"
 				}`}
 			>
