@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { stringConfig } from "@/config/strings";
 
 const sansSerifFont = localFont({
-	src: "./fonts/HelveticaNeueCyr-Roman.woff2",
+    src: "./fonts/HelveticaNeueCyr-Roman.woff2",
 });
 
 // const fontSans = IBM_Plex_Sans({
@@ -14,25 +15,36 @@ const sansSerifFont = localFont({
 // });
 
 export const metadata: Metadata = {
-	title: "zora",
-	description: "zora | An ai email writer for business.",
-	applicationName: "zora",
-	authors: [
-		{
-			name: "ascen",
-			url: "https://www.github.com/anascen",
-		},
-	],
+    title: stringConfig.title,
+    description: stringConfig.description,
+    applicationName: stringConfig.title,
+    authors: [
+        {
+            name: stringConfig.author.name,
+            url: stringConfig.author.url,
+        },
+    ],
+    openGraph: {
+        title: stringConfig.title,
+        description: stringConfig.description,
+        images: [
+            {
+                url: "./opengraph-image.jpg",
+                width: 1000,
+                height: 1000,
+            },
+        ],
+    },
 };
 
 export default function RootLayout({
-	children,
+    children,
 }: Readonly<{
-	children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-	return (
-		<html lang="en">
-			<body className={sansSerifFont.className}>{children}</body>
-		</html>
-	);
+    return (
+        <html lang="en">
+            <body className={sansSerifFont.className}>{children}</body>
+        </html>
+    );
 }
