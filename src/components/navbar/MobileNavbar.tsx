@@ -34,10 +34,10 @@ const MobileNavbar = (props: {
 			>
 				{props.navList.map((navItem, index) => {
 					return (
-						<div key={index}>
+						<div key={index} className="border-b-2 border-dotted border-black pb-1">
 						<NavItem
 							onClick={() => setIsVisible(false)}
-							className="border-b-2 pb-1 border-black w-full border-dotted"
+							className="w-full"
 							text={navItem.text}
 							path={navItem.path}
 						/>
@@ -64,7 +64,7 @@ const NavItem = (props: {
 					className={`${props.className}`}
 				>
 					{props.text}
-					<CallMadeSharp fontSize="small" />
+	{/*<CallMadeSharp fontSize="small" />*/}
 				</Link>
 			) : (
 				<span className={props.className}>{props.text}</span>
