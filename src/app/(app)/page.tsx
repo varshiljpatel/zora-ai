@@ -33,8 +33,8 @@ export default function Home() {
 			<Navbar />
 			<div style={scrollnone} 
 			className="w-full h-full overflow-scroll scroll-smooth flex">
-				<div className="w-full m-auto flex flex-col items-center pt-8 gap-y-16">
-					<Vec1 height={250} />
+				<div className="w-full m-auto flex flex-col items-center pt-12 gap-y-16">
+					<Vec1 height={200} />
 					<Suggestions suggestions={suggestions} />
 				</div>
 			</div>
