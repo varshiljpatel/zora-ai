@@ -12,7 +12,7 @@ const NotFound404 = () => {
         setTimeout(() => {
             router.push("/");
         }, 2000);
-    }, []);
+    });
 
     return (
         <div className="h-dvh m-8 w-full flex flex-col items-center justify-center gap-y-8">
