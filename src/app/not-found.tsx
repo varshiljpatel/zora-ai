@@ -15,7 +15,7 @@ const NotFound404 = () => {
     });
 
     return (
-        <div className="h-dvh m-8 w-full flex flex-col items-center justify-center gap-y-8">
+        <div className="h-dvh p-8 w-full flex flex-col items-center justify-center gap-y-8">
             <span>
                 <Logo height={26} />
             </span>
