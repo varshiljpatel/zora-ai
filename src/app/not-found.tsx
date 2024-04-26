@@ -11,13 +11,13 @@ const NotFound404 = () => {
     useEffect(() => {
         setTimeout(() => {
             router.push("/");
-        }, 2000);
+        }, 5000);
     });
 
     return (
         <div className="h-dvh p-8 w-full flex flex-col items-center justify-center gap-y-8">
             <span>
-                <Logo height={26} />
+                <Logo height={30} />
             </span>
             <h1 className="font-mono">Oops! Page not found.</h1>
             <p className="text-center">

@@ -96,7 +96,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${sansSerifFont.className} ${fontMono.variable}`}>
+            <body
+                className={`${sansSerifFont.className} ${fontMono.variable} text-[16px]`}
+            >
                 {children}
             </body>
         </html>
