@@ -4,13 +4,17 @@ import React, { useState } from "react";
 import Logo from "@/assets/logo/Logo";
 import Link from "next/link";
 import { Url } from "next/dist/shared/lib/router/router";
-import { CallMadeSharp } from "@mui/icons-material";
 import { useBodyLock } from "@/hooks/useBodyLock";
 
 const MobileNavbar = (props: {
     navList: { text: string; path?: string }[];
 }) => {
     const [isVisible, setIsVisible] = useState(false);
+
+    const handleOnClick = async () => {
+        await setIsVisible(!isVisible);
+        return !isVisible ? useBodyLock(true) : useBodyLock(false);
+    };
 
     return (
         <>
@@ -21,12 +25,7 @@ const MobileNavbar = (props: {
                     <Logo height={26} color="#000000" />
                 </Link>
                 <button
-                    onClick={async () => {
-                        await setIsVisible(!isVisible);
-                        return !isVisible
-                            ? useBodyLock(true)
-                            : useBodyLock(false);
-                    }}
+                    onClick={handleOnClick}
                     className="underline underline-offset-4 font-medium"
                 >
                     {isVisible ? "Close" : "Menu"}
