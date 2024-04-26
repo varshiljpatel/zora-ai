@@ -13,8 +13,9 @@ const MobileNavbar = (props: {
 
     const handleOnClick = async () => {
         await setIsVisible(!isVisible);
-        return !isVisible ? useBodyLock(true) : useBodyLock(false);
     };
+
+    useBodyLock(isVisible);
 
     return (
         <>
