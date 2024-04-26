@@ -13,11 +13,4 @@ export const authOptions: NextAuthOptions = {
             clientSecret: config.googleAuthProvider.clientSecret!,
         }),
     ],
-    // callbacks: {
-    //     async signIn(user: any) {
-    //         dbConnect();
-    //         console.log(user);
-    //         // const existingUser = await User.findOne({ email: user.email });
-    //     },
-    // },
 };
