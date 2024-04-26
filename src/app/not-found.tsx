@@ -9,8 +9,8 @@ import { useEffect } from "react";
 const NotFound404 = () => {
     const router = useRouter();
     useEffect(() => {
-        setTimeout(async () => {
-            await router.push("/");
+        setTimeout(() => {
+            router.push("/");
         }, 2000);
     }, []);
 
