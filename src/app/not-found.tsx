@@ -11,7 +11,7 @@ const NotFound404 = () => {
     useEffect(() => {
         setTimeout(async () => {
             await router.push("/");
-        }, 100000000000);
+        }, 2000);
     }, []);
 
     return (
