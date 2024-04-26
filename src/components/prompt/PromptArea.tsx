@@ -1,27 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import IconButton from "../ui/buttons/IconButton";
 import Send from "@mui/icons-material/SendSharp";
 import { useRouter } from "next/navigation";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
-const PromptArea = () => {
+const PromptArea = (props: { value: string }) => {
     const [isLoading, setIsLoading] = useState(false);
-    const [promptValue, setPromptValue] = useState("");
-    let router: AppRouterInstance | null;
-
-    router = useRouter();
+    const [promptValue, setPromptValue] = useState(props.value || "");
+    let router: AppRouterInstance = useRouter();
 
     const handleOnClick = async () => {
-        setIsLoading(true);
-
-        if (promptValue.length <= 0) {
-            setIsLoading(false);
-            return;
-        }
+        if (promptValue.length <= 0) return;
 
         try {
+            setIsLoading(true);
             const response = await fetch("/api/generate-email", {
                 method: "POST",
                 headers: {
@@ -36,17 +30,21 @@ const PromptArea = () => {
 
             const data = await response.json();
             await localStorage.setItem("email-data", data.message);
-            router!.push("/email");
+            await router.push("/email");
+            setIsLoading(false);
         } catch (error: any) {
             console.error("Error:", error.message);
+            setIsLoading(false);
         }
-
-        setIsLoading(false);
     };
 
     const handleTextareaChange: React.ChangeEventHandler = (event: any) => {
         setPromptValue(event.target.value);
     };
+
+    useEffect(() => {
+        setPromptValue(props.value);
+    }, [props.value]);
 
     return (
         <div className="relative w-full p-4 flex gap-x-4 sm:gap-x-8">
@@ -56,7 +54,7 @@ const PromptArea = () => {
                 onChange={handleTextareaChange}
                 rows={3}
                 placeholder="Enter email purpose here..."
-                className="resize-none transition-all border-2 p-4 py-2 placeholder:text-dark border-black bg-[#efefef] rounded-2xl max-sm:min-h-32 min-h-24 w-full"
+                className="focus:border-dark outline-none resize-none transition-all border-2 p-4 py-2 placeholder:text-dark border-black bg-[#efefef] rounded-2xl max-sm:min-h-32 min-h-24 w-full"
             ></textarea>
             <IconButton
                 icon={<Send fontSize="small" />}
