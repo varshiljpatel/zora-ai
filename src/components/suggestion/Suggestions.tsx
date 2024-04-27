@@ -7,7 +7,7 @@ const Suggestions = (props: {
     updateTextareaValue: (value: string) => void;
 }) => {
     return (
-        <div className="sm:w-4/6 w-full p-4 rounded-[2rem] flex flex-col items-center sm:gap-y-6 gap-y-4">
+        <div className="sm:w-4/6 w-full px-4 rounded-[2rem] flex flex-col items-center sm:gap-y-6 gap-y-4">
             {props.suggestions.length != 0 ? (
                 <>
                     <p className="text-[26px] tracking-tight text-center font-normal">
