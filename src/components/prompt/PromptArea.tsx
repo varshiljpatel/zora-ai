@@ -54,11 +54,11 @@ const PromptArea = (props: { value: string }) => {
                 onChange={handleTextareaChange}
                 rows={3}
                 placeholder="Enter email purpose here..."
-                className="focus:border-dark outline-none resize-none transition-all border-0 p-4 py-2 placeholder:text-dark bg-light-100 rounded-2xl max-sm:min-h-32 min-h-24 w-full"
+                className="focus:border-dark focus:border-2 outline-none resize-none transition-all border-0 p-4 py-2 placeholder:text-dark bg-light-100 rounded-2xl max-sm:min-h-32 min-h-24 w-full"
             ></textarea>
             <IconButton
                 icon={<Send fontSize="small" />}
-                className="max-sm:absolute max-sm:bottom-8 max-sm:right-8"
+                className="max-sm:absolute max-sm:bottom-4 max-sm:right-4"
                 color={promptValue.trim().length > 0 ? undefined : "#7f7f7f"}
                 onClick={handleOnClick}
                 isLoading={isLoading}
