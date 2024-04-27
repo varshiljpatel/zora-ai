@@ -42,7 +42,7 @@ const Navbar = (props: INavbar) => {
 			{isBack ? (
 				<span
 				onClick={handlePop}
-				 className="cursor-pointer underline z-50 ml-4 sm:mr-8 underline-offset-4">Back</span>
+				 className="cursor-pointer underline z-50 sm:mr-8 underline-offset-4">Back</span>
 			) : (
 				""
 			)}
