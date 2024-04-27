@@ -35,8 +35,8 @@ const EmailPage = () => {
         <div className="sm:p-8 p-4 h-dvh">
             <Navbar isBack={true} />
             {email === "" ? <LoadingAnimation /> : <></>}
-            <div className="py-8 p-4 flex sm:gap-y-8 gap-y-4 flex-col items-end">
-                <div className="bg-light-100 rounded-2xl p-4 w-full">
+            <div className="py-8 p-4 flex gap-y-8 flex-col items-end">
+                <div className="bg-light-100 rounded-2xl p-6 w-full">
                     <p
                         dangerouslySetInnerHTML={{
                             __html: htmlEmail,
