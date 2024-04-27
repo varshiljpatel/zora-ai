@@ -31,7 +31,7 @@ export default function Home() {
     }, []);
 
     return (
-        <div className="h-dvh flex flex-col justify-between p-4 pt-0">
+        <div className="h-dvh flex flex-col justify-between p-4 max-sm:pt-0">
             <Navbar />
             <div
                 style={scrollnone}
