@@ -20,7 +20,7 @@ const MobileNavbar = (props: {
     return (
         <>
             <div
-                className={`flex z-50 relative font-medium w-full justify-between items-center p-4 pt-0`}
+                className={`flex z-50 relative font-medium w-full justify-between items-center p-4`}
             >
                 <Link href={"/"} onClick={() => setIsVisible(false)}>
                     <Logo height={26} color="#000000" />
