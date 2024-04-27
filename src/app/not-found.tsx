@@ -10,7 +10,7 @@ const NotFound404 = () => {
     const router = useRouter();
     useEffect(() => {
         setTimeout(() => {
-            router.push("/");
+            router.replace("/");
         }, 5000);
     });
 
