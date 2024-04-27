@@ -19,8 +19,7 @@ const config: Config = {
                     DEFAULT: "rgb(0, 0, 0)",
                 },
                 light: {
-                    50: "rgb(215,215,215)",
-                    100: "rgb(239,239,239)",
+                    100: "rgb(230, 230, 230)",
                     DEFAULT: "rgb(255, 255, 255)",
                 },
             },
