@@ -32,7 +32,7 @@ const EmailPage = () => {
     }, []);
 
     return (
-        <div className="sm:p-8 p-4 pt-0 h-dvh">
+        <div className="sm:p-8 p-4 h-dvh">
             <Navbar isBack={true} />
             {email === "" ? <LoadingAnimation /> : <></>}
             <div className="py-8 p-4 flex sm:gap-y-8 gap-y-4 flex-col items-end">
