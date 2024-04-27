@@ -38,7 +38,7 @@ const Navbar = (props: INavbar) => {
 	}, []);
 
 	return (
-		<div className="flex justify-start items-center">
+		<div className="flex items-center">
 			{isBack ? (
 				<span
 				onClick={handlePop}
