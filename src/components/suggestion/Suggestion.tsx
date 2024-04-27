@@ -11,7 +11,7 @@ const Suggestion = (props: {
         <div
             onClick={() => props.updateTextareaValue(props.text.trim())}
             key={props.key}
-            className="min-h-20 cursor-pointer justify-center text-center flex items-center text-[16px] font-mono rounded-2xl border-2 sm:p-8 sm:py-4 p-4 px-8 py-2 w-full bg-light border-dark"
+            className="min-h-20 cursor-pointer justify-center text-center flex items-center text-[16px] font-mono rounded-2xl sm:p-8 sm:py-4 p-4 py-2 w-full bg-light-100"
         >
             <p key={props.key} className="cursor-pointer">
                 {props.text}
