@@ -1,15 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "@/assets/logo/Logo";
 import Link from "next/link";
 import { Url } from "next/dist/shared/lib/router/router";
 import { useBodyLock } from "@/hooks/useBodyLock";
+import { useSession } from "next-auth/react";
 
 const MobileNavbar = (props: {
     navList: { text: string; path?: string }[];
 }) => {
     const [isVisible, setIsVisible] = useState(false);
+    const [updatedNavList, setUpdatedNavList] = useState(props.navList);
+    const session = useSession();
 
     const handleOnClick = async () => {
         await setIsVisible(!isVisible);

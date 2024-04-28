@@ -1,11 +1,8 @@
 "use client";
 
 import Navbar from "@/components/navbar/Navbar";
-import IconButton from "@/components/ui/buttons/IconButton";
-import { ContentCopySharp, CopyAllSharp } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
-import CopyButton from "../../../components/ui/buttons/CopyButton";
-import { Hourglass } from "react-loader-spinner";
+import CopyButton from "@/components/ui/buttons/CopyButton";
 import LoadingAnimation from "@/components/loading/LoadingAnimation";
 
 const EmailPage = () => {
@@ -32,8 +29,7 @@ const EmailPage = () => {
     }, []);
 
     return (
-        <div className="sm:p-8 p-4 h-dvh">
-            <Navbar isBack={true} />
+        <div className="h-full">
             {email === "" ? <LoadingAnimation /> : <></>}
             <div className="py-8 p-4 flex gap-y-8 flex-col items-end">
                 <div className="bg-light-100 rounded-2xl p-6 w-full">

@@ -1,5 +1,4 @@
-import { Account, NextAuthOptions, Profile, User } from "next-auth";
-import dbConnect from "@/lib/dbConnect";
+import { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { config } from "@/config/config";
 
@@ -13,4 +12,5 @@ export const authOptions: NextAuthOptions = {
             clientSecret: config.googleAuthProvider.clientSecret!,
         }),
     ],
+    secret: process.env.NEXTAUTH_SECRET as string,
 };
