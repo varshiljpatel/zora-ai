@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import IconButton from "@/components/ui/buttons/IconButton";
 import { LogoutSharp } from "@mui/icons-material";
 import SquareLogo from "@/assets/logo/SquareLogo";
@@ -9,11 +9,14 @@ import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 const LogoutPage = () => {
+    const [loading, setLoading] = useState(false);
     const session = useSession();
     const router = useRouter();
 
     const handleLogOut = async () => {
+        setLoading(true);
         await signOut();
+        setLoading(false);
         router.replace("/");
     };
 
@@ -37,6 +40,7 @@ const LogoutPage = () => {
                 </p>
             </div>
             <IconButton
+                isLoading={loading}
                 className="max-sm:w-full h-[42px]"
                 icon={<LogoutSharp />}
                 color="#f00"

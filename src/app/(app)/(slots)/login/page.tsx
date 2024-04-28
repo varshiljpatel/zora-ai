@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import IconButton from "@/components/ui/buttons/IconButton";
 import GoogleIcon from "@/assets/icons/GoogleIcon";
 import { stringConfig } from "@/config/strings";
@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 const LoginPage = () => {
+    const [loading, setLoading] = useState(false);
     const session = useSession();
     const router: AppRouterInstance = useRouter();
 
@@ -24,7 +25,9 @@ const LoginPage = () => {
         sso: LiteralUnion<BuiltInProviderType>,
         options?: any
     ) => {
+        setLoading(true);
         await signIn(sso, options);
+        setLoading(false);
     };
 
     return (
@@ -43,6 +46,7 @@ const LoginPage = () => {
             <IconButton
                 onClick={() => handleSignin("google")}
                 displayText={true}
+                isLoading={loading}
                 className="max-sm:w-full h-[42px]"
                 devider={true}
                 icon={<GoogleIcon height={26} />}
