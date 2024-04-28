@@ -44,12 +44,12 @@ export const sansSerifFont = localFont({
             style: "italic",
         },
         {
-            path: "../assets/fonts/HelveticaNeueCyr-Black.woff2",
+            path: "../assets/fonts/HelveticaNeueCyr-dark.woff2",
             weight: "900",
             style: "normal",
         },
         {
-            path: "../assets/fonts/HelveticaNeueCyr-BlackItalic.woff2",
+            path: "../assets/fonts/HelveticaNeueCyr-darkItalic.woff2",
             weight: "900",
             style: "italic",
         },

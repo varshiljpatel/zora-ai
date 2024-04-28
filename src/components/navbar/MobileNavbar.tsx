@@ -44,7 +44,7 @@ const MobileNavbar = (props: {
                     return (
                         <div
                             key={index}
-                            className="w-full border-b-2 border-dotted border-black pb-0.5"
+                            className="w-full border-b-2 border-dotted border-dark pb-0.5"
                         >
                             <NavItem
                                 onClick={() => setIsVisible(false)}
