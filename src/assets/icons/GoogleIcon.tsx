@@ -4,7 +4,7 @@ const GoogleIcon = (props: { height?: number }) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            height={props.height || "24"}
+            height={props.height || "22"}
             viewBox="0 0 24 24"
             width="24"
         >
