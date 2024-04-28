@@ -16,7 +16,7 @@ const LoginPage = () => {
 
     useEffect(() => {
         if (session.status === "authenticated") {
-            router.back();
+            router.replace("/");
         }
     }, [session]);
 
