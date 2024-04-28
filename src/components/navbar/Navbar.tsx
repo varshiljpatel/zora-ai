@@ -32,10 +32,7 @@ const Navbar = (props: INavbar) => {
         setNavbarList([
             ...nl,
             {
-                text:
-                    session.status === "authenticated"
-                        ? "Log out"
-                        : "Log in se " + session.status,
+                text: session.status === "authenticated" ? "Log out" : "Log in",
                 path: session.status === "authenticated" ? "/logout" : "login",
             },
         ]);

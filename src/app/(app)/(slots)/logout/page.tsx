@@ -1,16 +1,27 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import IconButton from "@/components/ui/buttons/IconButton";
 import { LogoutSharp } from "@mui/icons-material";
 import SquareLogo from "@/assets/logo/SquareLogo";
 import { stringConfig } from "@/config/strings";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const LogoutPage = () => {
+    const session = useSession();
+    const router = useRouter();
+
     const handleLogOut = async () => {
         await signOut();
+        router.replace("/");
     };
+
+    useEffect(() => {
+        if (session.status === "unauthenticated") {
+            router.back();
+        }
+    }, [session]);
 
     return (
         <div className="flex flex-col py-8 max-sm:px-4 items-center justify-center gap-y-16">
