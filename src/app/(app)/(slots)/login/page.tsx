@@ -48,8 +48,7 @@ const LoginPage = () => {
                 displayText={true}
                 isLoading={loading}
                 className="max-sm:w-full h-[42px]"
-                devider={true}
-                icon={<GoogleIcon height={26} />}
+                icon={<GoogleIcon />}
             >
                 Sign in with Google
             </IconButton>
