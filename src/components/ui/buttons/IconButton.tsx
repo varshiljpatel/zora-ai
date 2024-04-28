@@ -41,7 +41,7 @@ const IconButton = (props: IIconButton) => {
             ) : (
                 <>
                     {props.icon && (
-                        {props.icon}
+                        <span>{props.icon}</span>
                     )}
                     {props.devider &&
                     props.displayText &&
