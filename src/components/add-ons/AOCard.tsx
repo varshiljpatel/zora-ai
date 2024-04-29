@@ -6,11 +6,11 @@ const AOCard = (props: {
     title: string;
     description: string;
     path?: string;
-    keyValue: number | string;
+    key: number | string;
 }) => {
     return (
         <div
-            key={props.keyValue}
+            key={props.key}
             className="bg-light-100 rounded-2xl w-full scale-100 lg:w-60 hover:bg-dark-100 hover:text-light lg:hover:scale-110 transition ease-linear delay-500"
         >
             <Link className="p-6 block" href={props.path || ""}>

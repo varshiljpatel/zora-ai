@@ -9,7 +9,7 @@ const AddOnsPage = () => {
                 {addOnsList.map((item, index) => {
                     return (
                         <AOCard
-                            keyValue={index}
+                            key={index}
                             title={item.title}
                             description={item.description || ""}
                             path={item.path || ""}
