@@ -13,11 +13,7 @@ const AOCard = (props: {
             key={props.keyValue}
             className="bg-light-100 rounded-2xl w-full scale-100 lg:w-60 hover:bg-dark-100 hover:text-light lg:hover:scale-110 transition ease-linear delay-500"
         >
-            <Link
-                key={props.keyValue}
-                className="p-6 block"
-                href={props.path || ""}
-            >
+            <Link className="p-6 block" href={props.path || ""}>
                 <h2 className="font-medium tracking-tight pb-2">
                     {props.title.trim()}
                 </h2>
