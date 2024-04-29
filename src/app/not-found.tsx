@@ -19,15 +19,14 @@ const NotFound404 = () => {
             <span>
                 <Logo height={30} />
             </span>
-            <h1 className="font-mono"><b className="text-[#FF0000]">Oops!</b> Page not found.</h1>
-            <p className="text-center">
+            <h1 className="font-mono">
+                <b className="text-[#FF0000]">Oops!</b> Page not found.
+            </h1>
+            <p className="text-center max-w-sm">
                 {stringConfig.title} couldn&apos;t find the page you were
                 looking for. {stringConfig.title} will redirects you to
                 &quot;/&quot;{" "}
-                <Link
-                    href={"/"}
-                    className="underline underline-offset-4"
-                >
+                <Link href={"/"} className="underline underline-offset-4">
                     Home
                 </Link>{" "}
                 page.
