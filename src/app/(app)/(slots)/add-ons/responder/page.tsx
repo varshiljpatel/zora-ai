@@ -50,7 +50,7 @@ const ResponderAddOnPage: React.FC = () => {
                 setResponse("Error occurred while making API call" + error);
             }
         })();
-    }, [storedValue]);
+    });
 
     return (
         <>
