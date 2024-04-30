@@ -39,13 +39,13 @@ const ResponderAddOnPage: React.FC = () => {
                 setResponse(
                     `<p class="font-medium" >${htmlData.substring(0, subjectEnd)}</p>${htmlData.substring(subjectEnd).replace("<br /><br />", "<br />")}`
                 );
-                return setLoading(false);
+                setLoading(false);
             } catch (error) {
                 setResponse("Error occurred while making API call" + error);
             }
             setStoredValue("");
         })();
-    }, [storedValue]);
+    });
 
     return (
         <>

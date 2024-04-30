@@ -50,7 +50,7 @@ const Navbar = (props: INavbar) => {
                 window.removeEventListener("resize", handleResize);
             };
         }
-    }, [session]);
+    }, [session.status]);
 
     return (
         <div className="flex items-center">

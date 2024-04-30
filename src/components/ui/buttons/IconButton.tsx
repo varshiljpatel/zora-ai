@@ -18,6 +18,7 @@ interface IIconButton {
 
 const IconButton = (props: IIconButton) => {
     const [width, setWidth] = useState(200);
+    const { theme, setTheme } = useTheme();
 
     useEffect(() => {
         if (window.innerWidth >= 650) {
@@ -25,7 +26,7 @@ const IconButton = (props: IIconButton) => {
         } else {
             setWidth(props.width || width / 2);
         }
-    }, []);
+    });
 
     return (
         <button
@@ -39,8 +40,8 @@ const IconButton = (props: IIconButton) => {
                 <Spinner
                     height={16}
                     colors={[
-                        useTheme().theme === "dark" ? "#000" : "#fff",
-                        useTheme().theme === "dark" ? "#000" : "#fff",
+                        theme === "dark" ? "#000" : "#fff",
+                        theme === "dark" ? "#000" : "#fff",
                     ]}
                     width={16}
                 />

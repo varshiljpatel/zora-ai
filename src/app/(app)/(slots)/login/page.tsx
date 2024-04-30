@@ -20,7 +20,7 @@ const LoginPage = () => {
         if (session.status === "authenticated") {
             router.replace("/");
         }
-    }, [session]);
+    }, [session.status]);
 
     const handleSignin = async (
         sso: LiteralUnion<BuiltInProviderType>,
