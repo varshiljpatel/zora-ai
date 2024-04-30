@@ -16,6 +16,7 @@ const ResponderAddOnPage: React.FC = () => {
     const [copyResponse, setCopyResponse] = useState("");
     const [loading, setLoading] = useState(false);
     var [valueContext, setValueContext] = useState(false);
+    const theme = useTheme().theme;
 
     useEffect(() => {
         if (storedValue === "") return;
@@ -65,11 +66,7 @@ const ResponderAddOnPage: React.FC = () => {
                             <div className="bg-light-100 flex flex-col gap-y-6 items-start dark:bg-dark-100 rounded-2xl p-6">
                                 <SquareLogo
                                     height={26}
-                                    color={
-                                        useTheme().theme === "dark"
-                                            ? "#fff"
-                                            : "#000"
-                                    }
+                                    color={theme === "dark" ? "#fff" : "#000"}
                                 />
                                 <p
                                     dangerouslySetInnerHTML={{
