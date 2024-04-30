@@ -1,5 +1,6 @@
 export const navList: {
     text: string;
+    icon?: any;
     path?: string;
 }[] = [
     {

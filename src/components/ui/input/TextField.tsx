@@ -15,7 +15,7 @@ const TextField: React.FC<ITextField> = (props) => {
             rows={props.rows || 3}
             placeholder={props.placeholder}
             onChange={props.onChange}
-            className={`resize-none w-full p-4 outline-none border-2 border-dark placeholder:text-dark text-dark ${props.className}`}
+            className={`resize-none w-full p-4 outline-none border-2 border-dark dark:border-light dark:placeholder:text-light placeholder:text-dark dark:text-light text-dark ${props.className}`}
         />
     );
 };

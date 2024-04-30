@@ -16,7 +16,9 @@ const Suggestions = (props: {
                     <span className="w-24 mb-4 h-[2px] rounded-full bg-dark"></span>
                 </>
             ) : (
-                <LoadingAnimation />
+                <span className="py-8">
+                    <LoadingAnimation />
+                </span>
             )}
 
             {props.suggestions.map((suggestion, index) => {

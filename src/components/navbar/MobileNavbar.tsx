@@ -6,6 +6,9 @@ import Link from "next/link";
 import { Url } from "next/dist/shared/lib/router/router";
 import { useBodyLock } from "@/hooks/useBodyLock";
 import { useSession } from "next-auth/react";
+import ThemeToggler from "../theme/ThemeToggler";
+import { useTheme } from "next-themes";
+import OutlineButton from "../ui/buttons/OutlineButton";
 
 const MobileNavbar = (props: {
     navList: { text: string; path?: string }[];
@@ -26,17 +29,23 @@ const MobileNavbar = (props: {
                 className={`flex z-50 relative font-medium w-full justify-between items-center p-4`}
             >
                 <Link href={"/"} onClick={() => setIsVisible(false)}>
-                    <Logo height={26} color="#000000" />
+                    <Logo
+                        height={26}
+                        color={useTheme().theme === "dark" ? "#fff" : "#000"}
+                    />
                 </Link>
-                <button
-                    onClick={handleOnClick}
-                    className="underline underline-offset-4 font-medium"
-                >
-                    {isVisible ? "Close" : "Menu"}
-                </button>
+                <div className="flex items-center gap-x-6">
+                    <ThemeToggler />
+                    <button
+                        onClick={handleOnClick}
+                        className="underline underline-offset-4 font-medium"
+                    >
+                        {isVisible ? "Close" : "Menu"}
+                    </button>
+                </div>
             </div>
             <div
-                className={`w-full absolute top-0 bottom-0 right-0 left-0 z-10 bg-light flex flex-col items-start gap-y-6 p-8 pt-24 rounded-b-2xl ${
+                className={`w-full absolute top-0 bottom-0 right-0 left-0 z-10 bg-light dark:bg-background flex flex-col items-start gap-y-8 p-8 pt-24 rounded-b-2xl ${
                     isVisible ? "block" : "h-0 hidden"
                 }`}
             >
@@ -44,7 +53,7 @@ const MobileNavbar = (props: {
                     return (
                         <div
                             key={index}
-                            className="w-full border-b-2 border-dotted border-dark pb-0.5"
+                            className="w-full border-b-2 border-dotted dark:border-light border-dark pb-0.75"
                         >
                             <NavItem
                                 onClick={() => setIsVisible(false)}
@@ -54,6 +63,11 @@ const MobileNavbar = (props: {
                         </div>
                     );
                 })}
+                <Link href={"/add-ons"} className="w-full">
+                    <div className="w-full border-2 border-dark dark:border-light rounded-full flex items-center justify-center h-[42px]">
+                        {"Add ons"}
+                    </div>
+                </Link>
             </div>
         </>
     );

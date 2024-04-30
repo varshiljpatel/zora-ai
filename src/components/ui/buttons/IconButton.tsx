@@ -1,5 +1,6 @@
 "use client";
 
+import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import { Hourglass as Spinner } from "react-loader-spinner";
 
@@ -28,21 +29,24 @@ const IconButton = (props: IIconButton) => {
 
     return (
         <button
-            style={{ backgroundColor: `${props.color || "rgb(0, 0, 0)"}` }}
+            style={{
+                backgroundColor: `${props.color || ""}`,
+            }}
             onClick={props.onClick}
-            className={`flex justify-center h-[42px] items-center gap-x-2 text-[14px] rounded-full transition-all text-white font-medium px-6 bg-dark ${props.className}`}
+            className={`flex justify-center h-[42px] items-center gap-x-2 text-[14px] rounded-full transition-all bg-dark text-white dark:text-dark font-medium dark:bg-light px-6 ${props.className}`}
         >
             {props.isLoading ? (
                 <Spinner
                     height={16}
-                    colors={["#ffffff", "#ffffff"]}
+                    colors={[
+                        useTheme().theme === "dark" ? "#000" : "#fff",
+                        useTheme().theme === "dark" ? "#000" : "#fff",
+                    ]}
                     width={16}
                 />
             ) : (
                 <>
-                    {props.icon && (
-                        <span>{props.icon}</span>
-                    )}
+                    {props.icon && <span>{props.icon}</span>}
                     {props.devider &&
                     props.displayText &&
                     window.innerWidth >= 650 ? (

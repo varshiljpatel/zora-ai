@@ -1,15 +1,15 @@
 import React from "react";
 
 export default function IndexLayout({
-	children,
+    children,
 }: Readonly<{
-	children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-	return (
-		<div className="bg-light w-full h-full">
-			<div className="sm:w-[60%] m-auto w-full h-dvh">
-				<main>{children}</main>
-			</div>
-		</div>
-	);
+    return (
+        <div className="bg-light dark:bg-background w-full h-full">
+            <div className="sm:w-[60%] m-auto w-full h-dvh">
+                <main>{children}</main>
+            </div>
+        </div>
+    );
 }

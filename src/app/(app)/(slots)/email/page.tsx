@@ -32,7 +32,7 @@ const EmailPage = () => {
         <div className="h-full">
             {email === "" ? <LoadingAnimation /> : <></>}
             <div className="py-8 max-sm:p-4 flex gap-y-8 flex-col items-end">
-                <div className="bg-light-100 rounded-2xl p-6 w-full">
+                <div className="bg-light-100 dark:bg-dark-100 rounded-2xl p-6 w-full">
                     <p
                         dangerouslySetInnerHTML={{
                             __html: htmlEmail,

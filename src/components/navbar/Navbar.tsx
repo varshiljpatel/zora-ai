@@ -36,7 +36,6 @@ const Navbar = (props: INavbar) => {
                 path: session.status === "authenticated" ? "/logout" : "login",
             },
         ]);
-        console.log("list : ", navbarList);
 
         setWindowWidth(window.innerWidth);
         setIsBack(props.isBack || false);

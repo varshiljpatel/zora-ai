@@ -4,6 +4,7 @@ import { stringConfig } from "@/config/strings";
 import JotaiProviders from "@/providers/JotaiProvider";
 import { fontMono, sansSerifFont } from "@/config/fonts";
 import AuthProvider from "@/providers/AuthProvider";
+import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
     title: stringConfig.title,
@@ -39,7 +40,11 @@ export default function RootLayout({
                 className={`${sansSerifFont.className} ${fontMono.variable} text-[16px]`}
             >
                 <JotaiProviders>
-                    <AuthProvider>{children}</AuthProvider>
+                    <AuthProvider>
+                        <ThemeProvider attribute="class" defaultTheme="light">
+                            {children}
+                        </ThemeProvider>
+                    </AuthProvider>
                 </JotaiProviders>
             </body>
         </html>

@@ -6,6 +6,7 @@ import Navbar from "@/components/navbar/Navbar";
 import PromptArea from "@/components/prompt/PromptArea";
 import { useEffect, useState } from "react";
 import SquareLogo from "@/assets/logo/SquareLogo";
+import { useTheme } from "next-themes";
 
 export default function Home() {
     const [suggestions, setSuggestions] = useState<string[]>([]);
@@ -39,8 +40,13 @@ export default function Home() {
             >
                 <div className="w-full mx-4 mt-16 m-auto flex flex-col items-center gap-y-4">
                     {/*<Vec1 height={200} />*/}
-                    <span className="flex items-center justify-center p-4 bg-dark rounded-full">
-                        <SquareLogo color="#ffffff" height={30} />
+                    <span className="flex items-center justify-center p-4 bg-dark dark:bg-light rounded-full">
+                        <SquareLogo
+                            color={
+                                useTheme().theme === "dark" ? "#000" : "#fff"
+                            }
+                            height={30}
+                        />
                     </span>
                     <Suggestions
                         suggestions={suggestions}

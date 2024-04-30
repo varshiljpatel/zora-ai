@@ -2,6 +2,7 @@
 
 import Logo from "@/assets/logo/Logo";
 import { stringConfig } from "@/config/strings";
+import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -17,7 +18,10 @@ const NotFound404 = () => {
     return (
         <div className="h-dvh p-8 w-full flex flex-col items-center justify-center gap-y-8">
             <span>
-                <Logo height={30} />
+                <Logo
+                    height={26}
+                    color={useTheme().theme === "dark" ? "#fff" : "#000"}
+                />
             </span>
             <h1 className="font-mono">
                 <b className="text-[#FF0000]">Oops!</b> Page not found.
