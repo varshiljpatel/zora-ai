@@ -18,8 +18,8 @@ const config: Config = {
                 background: "#000000",
                 base: "rgb(64, 64, 64)",
                 dark: {
-                    100: "rgb(75, 75, 75)",
-                    200: "rgb(150, 150, 150)",
+                    100: "rgb(25, 25, 25)",
+                    200: "rgb(60, 60, 60)",
                     DEFAULT: "rgb(0, 0, 0)",
                 },
                 light: {

@@ -26,7 +26,7 @@ const ResponderForm = () => {
     };
 
     return (
-        <div className="flex flex-col gap-y-8 items-center w-full">
+        <div className="flex flex-col gap-y-4 items-center w-full">
             <p className="text-[26px] font-normal tracking-tight">
                 {"Received email"}
             </p>
