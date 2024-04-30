@@ -16,7 +16,7 @@ const DesktopNavbar = (props: {
             <Link href={"/"}>
                 <Logo
                     height={26}
-                    color={useTheme().theme === "dark" ? "#fff" : "#000"}
+                    color={useTheme().theme === "dark" ? "#ffffff" : "#000000"}
                 />
             </Link>
             <ul className="flex gap-x-8 font-medium items-center">

@@ -43,7 +43,9 @@ export default function Home() {
                     <span className="flex items-center justify-center p-4 bg-dark dark:bg-light rounded-full">
                         <SquareLogo
                             color={
-                                useTheme().theme === "dark" ? "#000" : "#fff"
+                                useTheme().theme === "light"
+                                    ? "#ffffff"
+                                    : "#000000"
                             }
                             height={30}
                         />

@@ -16,6 +16,7 @@ const MobileNavbar = (props: {
     const [isVisible, setIsVisible] = useState(false);
     const [updatedNavList, setUpdatedNavList] = useState(props.navList);
     const session = useSession();
+    const theme = useTheme().theme;
 
     const handleOnClick = async () => {
         await setIsVisible(!isVisible);
@@ -31,7 +32,7 @@ const MobileNavbar = (props: {
                 <Link href={"/"} onClick={() => setIsVisible(false)}>
                     <Logo
                         height={26}
-                        color={useTheme().theme === "dark" ? "#fff" : "#000"}
+                        color={theme === "light" ? "#000000" : "#ffffff"}
                     />
                 </Link>
                 <div className="flex items-center gap-x-6">
