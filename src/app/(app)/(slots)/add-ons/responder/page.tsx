@@ -45,7 +45,7 @@ const ResponderAddOnPage: React.FC = () => {
             }
             setStoredValue("");
         })();
-    });
+    }, [storedValue]);
 
     return (
         <>
