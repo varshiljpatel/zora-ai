@@ -18,7 +18,7 @@ const config: Config = {
                 background: "#00162C",
                 base: "rgb(64, 64, 64)",
                 dark: {
-                    100: "rgb(0, 37, 69)",
+                    100: "rgb(24, 48, 69)",
                     200: "rgb(60, 60, 60)",
                     DEFAULT: "rgb(0, 0, 0)",
                 },
