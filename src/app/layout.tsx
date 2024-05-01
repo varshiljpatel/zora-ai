@@ -37,12 +37,14 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${sansSerifFont.className} bg-light dark:bg-dark ${fontMono.variable} text-[16px]`}
+                className={`${sansSerifFont.className} ${fontMono.variable} text-[16px]`}
             >
                 <JotaiProviders>
                     <AuthProvider>
                         <ThemeProvider
                             attribute="class"
+                            defaultTheme="system"
+                            enableSystem
                         >
                             {children}
                         </ThemeProvider>
