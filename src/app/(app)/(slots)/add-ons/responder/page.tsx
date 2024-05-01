@@ -57,11 +57,11 @@ const ResponderAddOnPage: React.FC = () => {
         <>
             {storedValue !== "" || valueContext ? (
                 loading ? (
-                    <div className="m-auto">
+                    <div className="m-auto h-full">
                         <LoadingAnimation />
                     </div>
                 ) : (
-                    <div className="w-full max-sm:p-4 py-4 flex flex-col gap-y-4 justify-center items-start">
+                    <div className="w-full max-sm:p-4 py-8 flex flex-col gap-y-4 justify-center items-start">
                         <div className="flex flex-col items-end gap-y-4">
                             <div className="bg-light-100 flex flex-col gap-y-6 items-start dark:bg-dark-100 rounded-2xl p-6">
                                 <SquareLogo

@@ -26,9 +26,14 @@ const ResponderForm = () => {
     };
 
     return (
-        <div className="flex flex-col gap-y-4 items-center w-full">
+        <div className="flex flex-col justify-center h-full mt-4 gap-y-4 items-center w-full">
             <p className="text-[26px] font-normal tracking-tight">
                 {"Received email"}
+            </p>
+            <p className="font-normal px-8 max-w-md mb-8 opacity-50 text-center">
+                {
+                    "Enter or paste received mail by you in below box to generate response,"
+                }
             </p>
             <div className="w-full flex flex-col items-end gap-y-4 max-sm:p-4">
                 <TextField

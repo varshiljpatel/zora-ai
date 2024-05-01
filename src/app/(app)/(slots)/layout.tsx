@@ -7,7 +7,7 @@ const EmailPage = ({ children }: { children: React.ReactNode }) => {
             <div>
                 <Navbar isBack={true} />
             </div>
-            <div className="w-full m-auto">{children}</div>
+            <div className="w-full h-full">{children}</div>
         </div>
     );
 };

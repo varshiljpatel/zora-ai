@@ -32,7 +32,7 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="flex flex-col py-8 max-sm:px-4 items-center justify-center gap-y-16">
+        <div className="flex flex-col h-full py-8 max-sm:px-4 items-center justify-center gap-y-16">
             <span className="mb-4">
                 <SquareLogo
                     color={useTheme().theme === "dark" ? "#fff" : "#000"}

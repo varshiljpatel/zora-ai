@@ -28,7 +28,7 @@ const LogoutPage = () => {
     }, [session]);
 
     return (
-        <div className="flex flex-col py-8 max-sm:px-4 items-center justify-center gap-y-16">
+        <div className="flex flex-col h-full py-8 max-sm:px-4 items-center justify-center gap-y-16">
             <span className="mb-4">
                 <SquareLogo
                     color={useTheme().theme === "dark" ? "#fff" : "#000"}
@@ -45,7 +45,7 @@ const LogoutPage = () => {
             </div>
             <IconButton
                 isLoading={loading}
-                className="max-sm:w-full h-[42px]"
+                className="max-sm:w-full h-[42px] dark:text-white"
                 icon={<LogoutSharp fontSize="small" />}
                 color="#f00"
                 onClick={handleLogOut}
