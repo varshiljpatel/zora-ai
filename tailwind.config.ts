@@ -15,10 +15,10 @@ const config: Config = {
             },
             colors: {
                 neutral: "rgba(255, 255, 255, 0.5)",
-                background: "#000000",
+                background: "#00162C",
                 base: "rgb(64, 64, 64)",
                 dark: {
-                    100: "rgb(25, 25, 25)",
+                    100: "rgb(0, 37, 69)",
                     200: "rgb(60, 60, 60)",
                     DEFAULT: "rgb(0, 0, 0)",
                 },
