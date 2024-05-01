@@ -15,11 +15,11 @@ const ThemeToggler = () => {
 
     return theme === "light" ? (
         <span onClick={() => setTheme(EnumThemes.Light)}>
-            <DarkModeSharp />
+            <DarkModeOutlined />
         </span>
     ) : (
         <span onClick={() => setTheme(EnumThemes.Dark)}>
-            <LightModeOutlined />
+            <LightModeSharp />
         </span>
     );
 };
