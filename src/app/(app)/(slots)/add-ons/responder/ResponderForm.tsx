@@ -41,7 +41,7 @@ const ResponderForm = () => {
                     onChange={handleOnChange}
                     value={value}
                     rows={10}
-                    className="p-6 border-none bg-light-100 dark:bg-dark-100 rounded-2xl"
+                    className="p-6 border-none bg-light-100 dark:bg-dark-100 rounded-2xl placeholder:text-[#7f7f7f]"
                 />
                 <IconButton
                     onClick={handleOnClick}
