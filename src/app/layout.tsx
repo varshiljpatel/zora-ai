@@ -43,9 +43,6 @@ export default function RootLayout({
                     <AuthProvider>
                         <ThemeProvider
                             attribute="class"
-                            defaultTheme="dark"
-                            enableSystem
-                            enableColorScheme
                         >
                             {children}
                         </ThemeProvider>
