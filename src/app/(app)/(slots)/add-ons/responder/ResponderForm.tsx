@@ -48,7 +48,6 @@ const ResponderForm = () => {
                     isLoading={isLoading}
                     color={value.length > 0 ? undefined : "#7f7f7f"}
                     displayText
-                    className="max-sm:w-full"
                 >
                     Generate reply
                 </IconButton>
