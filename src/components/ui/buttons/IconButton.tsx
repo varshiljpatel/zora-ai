@@ -34,7 +34,7 @@ const IconButton = (props: IIconButton) => {
                 backgroundColor: `${props.color || ""}`,
             }}
             onClick={props.onClick}
-            className={`flex justify-center h-[42px] items-center gap-x-2 text-[14px] rounded-full transition-all bg-dark text-white dark:text-dark font-medium dark:bg-light px-6 ${props.className}`}
+            className={`flex justify-center h-[42px] items-center gap-x-2 text-[14px] rounded-full transition-all bg-[#004075] text-white dark:text-dark font-medium dark:bg-[#A8C8FA] px-6 ${props.className}`}
         >
             {props.isLoading ? (
                 <Spinner
