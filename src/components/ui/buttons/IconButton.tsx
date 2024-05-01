@@ -56,7 +56,7 @@ const IconButton = (props: IIconButton) => {
                         ""
                     )}
                     <span
-                        className={`sm:block ${props.displayText ? "" : "hidden"} font-normal`}
+                        className={`sm:block ${props.displayText ? "" : "hidden"} font-medium`}
                     >
                         {props.children}
                     </span>
