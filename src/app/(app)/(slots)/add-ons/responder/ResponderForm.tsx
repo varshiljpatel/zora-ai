@@ -35,7 +35,7 @@ const ResponderForm = () => {
                     "Enter or paste received mail by you in below box to generate response,"
                 }
             </p>
-            <div className="w-full flex flex-col items-end gap-y-4 max-sm:p-4">
+            <div className="w-full flex flex-col items-end gap-y-8 max-sm:p-4">
                 <TextField
                     placeholder="Enter received mail here..."
                     onChange={handleOnChange}
