@@ -47,7 +47,7 @@ const PromptArea = (props: { value: string }) => {
     }, [props.value]);
 
     return (
-        <div className="relative w-full flex gap-x-4 sm:gap-x-8">
+        <div className="relative w-full max-md:p-2 flex gap-x-4 sm:gap-x-8">
             <textarea
                 id="prommt"
                 value={promptValue}
@@ -58,7 +58,7 @@ const PromptArea = (props: { value: string }) => {
             ></textarea>
             <IconButton
                 icon={<Send fontSize="small" />}
-                className="max-sm:h-[40px] max-sm:absolute max-sm:bottom-[4px] max-sm:right-[4px]"
+                className="max-sm:h-[40px] max-sm:absolute max-sm:bottom-[12px] max-sm:right-[12px]"
                 color={promptValue.trim().length > 0 ? "" : "#7f7f7f"}
                 onClick={handleOnClick}
                 isLoading={isLoading}
