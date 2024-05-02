@@ -11,7 +11,7 @@ const AOCard = (props: {
     return (
         <div
             key={props.key}
-            className="bg-light-100 dark:bg-dark-100 hover:bg-[#004075] rounded-xl w-full scale-100 lg:w-60 hover:text-light lg:hover:scale-110 transition ease-linear delay-500"
+            className="bg-light-100 dark:bg-dark-100 hover:bg-[#004075] dark:hover:bg-[#004075] rounded-xl w-full scale-100 lg:w-60 hover:text-light lg:hover:scale-110 transition ease-linear delay-500"
         >
             <Link className="p-6 block" href={props.path || ""}>
                 <h2 className="font-medium tracking-tight pb-2">
