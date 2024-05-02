@@ -13,7 +13,7 @@ const Suggestions = (props: {
                     <p className="text-[26px] tracking-tight text-center font-normal">
                         zora suggestions
                     </p>
-                    <span className="w-20 mb-4 h-[2px] rounded-full bg-dark dark:bg-light dark:opacity-75"></span>
+                    <span className="w-20 mb-4 h-[2px] rounded-full bg-dark dark:bg-neutral"></span>
                 </>
             ) : (
                 <span className="py-8">
