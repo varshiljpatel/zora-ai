@@ -58,7 +58,7 @@ const PromptArea = (props: { value: string }) => {
             ></textarea>
             <IconButton
                 icon={<Send fontSize="small" />}
-                className="max-sm:h-[42px] max-sm:absolute max-sm:bottom-4 max-sm:right-4 max-sm:p-0 max-sm:w-[42px]"
+                className="max-sm:h-[48px] max-sm:absolute max-sm:bottom-4 max-sm:right-4 max-sm:p-0 max-sm:w-[48px]"
                 color={promptValue.trim().length > 0 ? "" : "#7f7f7f"}
                 onClick={handleOnClick}
                 isLoading={isLoading}
