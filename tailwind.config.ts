@@ -19,7 +19,7 @@ const config: Config = {
                 base: "rgb(64, 64, 64)",
                 dark: {
                     100: "#1C2021",
-                    200: "rgb(60, 60, 60)",
+                    200: "#272B2C",
                     DEFAULT: "rgb(0, 0, 0)",
                 },
                 light: {
