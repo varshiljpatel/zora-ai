@@ -30,7 +30,7 @@ const EmailPassword = (props: { onNext: (data: any) => void }) => {
             </div>
             <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="max-w-lg items-end flex flex-col gap-y-6 w-full"
+                className="max-w-lg items-end flex flex-col gap-y-4 w-full"
             >
                 <InputField
                     other={register("email", {
