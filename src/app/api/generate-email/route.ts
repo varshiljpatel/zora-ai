@@ -1,4 +1,5 @@
 import { genAI } from "@/lib/geminiClient";
+import { sendResponse } from "@/lib/response/sendResponse";
 import { IGenerateEmailBody } from "@/types/api/generateEmail";
 import { GenerateContentResult, GenerativeModel } from "@google/generative-ai";
 
@@ -6,15 +7,11 @@ export const runtime = "edge";
 
 export async function POST(request: Request) {
     if (!request.body) {
-        return Response.json(
-            {
-                success: false,
-                message: "Request body is undefined",
-            },
-            {
-                status: 400,
-            }
-        );
+        return sendResponse({
+            success: false,
+            message: "Request body is undefined",
+            status: 400,
+        });
     }
 
     const reqBody: IGenerateEmailBody = await request.json();

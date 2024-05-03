@@ -19,6 +19,7 @@
         "@google/generative-ai": "^0.7.1",
         "@mui/icons-material": "^5.15.15",
         "@mui/material": "^5.15.15",
+        "@prisma/client": "^5.13.0",
         "ai": "^3.0.24",
         "axios": "^1.6.8",
         "bcryptjs": "^2.4.3",
