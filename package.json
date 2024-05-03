@@ -23,9 +23,11 @@
         "ai": "^3.0.24",
         "axios": "^1.6.8",
         "bcryptjs": "^2.4.3",
+        "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.1",
         "copy-to-clipboard": "^3.3.3",
         "jotai": "^2.8.0",
+        "lucide-react": "^0.378.0",
         "mongoose": "^8.3.2",
         "next": "14.2.2",
         "next-auth": "^4.24.7",
@@ -34,6 +36,8 @@
         "react-dom": "^18",
         "react-hook-form": "^7.51.3",
         "react-loader-spinner": "^6.1.6",
+        "tailwind-merge": "^2.3.0",
+        "tailwindcss-animate": "^1.0.7",
         "vercel": "^32.3.0"
     },
     "devDependencies": {

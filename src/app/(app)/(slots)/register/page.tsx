@@ -1,70 +1,61 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import IconButton from "@/components/ui/buttons/IconButton";
-import { stringConfig } from "@/config/strings";
-import SquareLogo from "@/assets/logo/SquareLogo";
+import React from "react";
+import EmailPassword from "./layouts/EmailPassword";
+import { atom, PrimitiveAtom, useAtom } from "jotai";
+import MobileNo from "./layouts/MobileNo";
+import BusinessName from "./layouts/BusinessName";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { useTheme } from "next-themes";
-import { useForm } from "react-hook-form";
-import InputField from "@/components/ui/input/InputField";
+
+const stepAtom: PrimitiveAtom<number> = atom<number>(1);
+const formDataAtom: PrimitiveAtom<{}> = atom<{}>({});
 
 const LoginPage = () => {
-    const [loading, setLoading] = useState(false);
+    const [step, setStep] = useAtom<number>(stepAtom);
+    const [formData, setFormData] = useAtom<{}>(formDataAtom);
     const router: AppRouterInstance = useRouter();
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm();
 
-    useEffect(() => {});
+    const handleNext = (data: any) => {
+        setFormData({ ...formData, ...data });
+        setStep(step + 1);
+    };
 
-    const handleRegister = async () => {
-        setLoading(true);
-        // Register user here...
-        setLoading(false);
+    const handlePrev = () => {
+        if (step <= 1) return;
+        setStep(step - 1);
+    };
+
+    const handleFormSubmit = async (data: any) => {
+        const allData = { ...formData, ...data };
+        try {
+            const response = await axios.post("/auth/user/register", allData);
+            if (response.status === 200) {
+                // If response is OK, navigate back
+                router.back();
+            } else {
+                alert("Registration failed");
+            }
+        } catch (error) {
+            console.log("Error registering user:", error);
+        }
+        console.log("Form submitted with data:", allData);
     };
 
     return (
         <div className="flex flex-col h-full py-8 max-sm:px-4 items-center justify-center gap-y-12">
-            <span>
-                <SquareLogo
-                    color={useTheme().theme === "dark" ? "#fff" : "#000"}
-                    height={42}
+            {step === 1 && <EmailPassword onNext={handleNext} />}
+            {step === 2 && (
+                <BusinessName onNext={handleNext} onPrev={handlePrev} />
+            )}
+            {step === 3 && (
+                <MobileNo
+                    formData={formData}
+                    onNext={handleFormSubmit}
+                    onPrev={handlePrev}
                 />
-            </span>
-            <div className="flex flex-col gap-y-2 sm:max-w-md">
-                <p className="text-center text-[42px] font-normal tracking-tight">
-                    {"Sign up"}
-                </p>
-                <p className="text-center">
-                    {stringConfig.registerDescription() as string}
-                </p>
-            </div>
-            <section className="max-w-lg items-end flex flex-col gap-y-6 w-full">
-                <InputField
-                    onChange={() => {}}
-                    value={""}
-                    type="text"
-                    placeholder="Enter email here"
-                />
-                <InputField
-                    onChange={() => {}}
-                    value={""}
-                    type="password"
-                    placeholder="Enter password here"
-                />
-                <IconButton
-                    onClick={handleRegister}
-                    displayText={true}
-                    isLoading={loading}
-                    className="max-md:w-full mt-4"
-                >
-                    Register
-                </IconButton>
-            </section>
+            )}
         </div>
     );
 };

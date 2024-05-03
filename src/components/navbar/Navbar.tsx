@@ -64,7 +64,7 @@ const Navbar = (props: INavbar) => {
             ) : (
                 ""
             )}
-            {windowWidth >= 650 ? (
+            {windowWidth >= 1080 ? (
                 <DesktopNavbar navList={navbarList} />
             ) : (
                 <MobileNavbar navList={navbarList} />
