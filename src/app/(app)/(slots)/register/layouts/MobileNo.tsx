@@ -24,10 +24,10 @@ const MobileNo = (props: {
         <>
             <div className="flex flex-col gap-y-2 sm:max-w-md">
                 <p className="text-center text-[2rem] font-normal tracking-tight">
-                    {"Business"}
+                    {"Contact"}
                 </p>
                 <p className="text-center opacity-50">
-                    {"Enter your business contact number to below visible input box for personalized " +
+                    {"Enter business's contact number to below visible input box for personalized " +
                         stringConfig.title +
                         " responses."}
                 </p>
@@ -45,7 +45,7 @@ const MobileNo = (props: {
                         },
                     })}
                     type="text"
-                    placeholder="Enter business name here"
+                    placeholder="Enter business's contact number"
                 />
                 <Button
                     type="submit"
