@@ -14,7 +14,7 @@ const config: Config = {
                 mono: ["var(--font-mono)"],
             },
             colors: {
-                neutral: "rgba(255, 255, 255, 0.5)",
+                neutral: "rgb(127, 127, 127)",
                 background: "#131313",
                 base: "rgb(64, 64, 64)",
                 primaryLight: "#a8c8fa",

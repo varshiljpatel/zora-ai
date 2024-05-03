@@ -1,7 +1,7 @@
 import Navbar from "@/components/navbar/Navbar";
 import React, { useEffect, useState } from "react";
 
-const EmailPage = ({ children }: { children: React.ReactNode }) => {
+const SlotLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <div className="p-4 h-dvh flex flex-col">
             <div>
@@ -12,4 +12,4 @@ const EmailPage = ({ children }: { children: React.ReactNode }) => {
     );
 };
 
-export default EmailPage;
+export default SlotLayout;
