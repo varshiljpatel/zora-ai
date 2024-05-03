@@ -37,7 +37,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${sansSerifFont.className} ${fontMono.variable} text-[16px]`}
+                className={`underline-offset-4 ${sansSerifFont.className} ${fontMono.variable} text-[16px]`}
             >
                 <ThemeProvider attribute="class" defaultTheme="dark">
                     <JotaiProviders>

@@ -40,7 +40,7 @@ const LoginPage = () => {
         } catch (error) {
             console.log("Error registering user:", error);
         }
-        console.log("Form submitted with data:", allData);
+        // console.log("Form submitted with data:", allData);
     };
 
     return (

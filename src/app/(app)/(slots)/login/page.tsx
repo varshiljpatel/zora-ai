@@ -10,6 +10,7 @@ import { BuiltInProviderType } from "next-auth/providers/index";
 import { useRouter } from "next/navigation";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 
 const LoginPage = () => {
     const [loading, setLoading] = useState(false);
@@ -32,30 +33,32 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="flex flex-col h-full py-8 max-sm:px-4 items-center justify-center gap-y-16">
-            <span className="mb-4">
-                <SquareLogo
-                    color={useTheme().theme === "dark" ? "#fff" : "#000"}
-                    height={42}
-                />
-            </span>
+        <div className="flex flex-col h-full py-8 max-sm:px-4 items-center justify-center gap-y-12">
             <div className="flex flex-col gap-y-2 sm:max-w-md">
-                <p className="text-center text-[42px] font-normal tracking-tight">
+                <p className="text-center text-[2rem] font-normal tracking-tight">
                     {"Log in"}
                 </p>
-                <p className="text-center">
+                <p className="text-center opacity-50">
                     {stringConfig.loginDescription() as string}
                 </p>
             </div>
-            <IconButton
-                onClick={() => handleSignin("google")}
-                displayText={true}
-                isLoading={loading}
-                className="max-sm:w-full h-[42px]"
-                icon={<GoogleIcon />}
-            >
-                Sign in with Google
-            </IconButton>
+            <section className="w-full flex flex-col items-center justify-center">
+                <IconButton
+                    onClick={() => handleSignin("google")}
+                    displayText={true}
+                    isLoading={loading}
+                    className="max-sm:w-full h-[42px] "
+                    icon={<GoogleIcon />}
+                >
+                    Sign in with Google
+                </IconButton>
+                <span className="mt-4 flex gap-2 items-center justify-center">
+                    <p className="opacity-50">Don't have an account</p>{" "}
+                    <Link href={"/register"} className="opacity-100 underline">
+                        Sign up
+                    </Link>
+                </span>
+            </section>
         </div>
     );
 };
