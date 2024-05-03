@@ -19,7 +19,7 @@ const InputField: React.FC<IInputField> = (props) => {
             placeholder={props.placeholder}
             onChange={props.onChange}
             {...props.other}
-            className={`outline-none border-2 border-dark dark:border-base dark:focus:border-light w-full dark:placeholder:text-neutral h-[42px] dark:text-light bg-transparent placeholder:text-dark text-dark rounded-none px-4 ${props.className}`}
+            className={`outline-none border-2 border-dark dark:border-base dark:focus:border-light w-full dark:placeholder:text-neutral h-[60px] dark:text-light bg-transparent placeholder:text-dark text-dark rounded-none px-4 ${props.className}`}
         />
     );
 };
