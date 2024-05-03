@@ -53,7 +53,7 @@ const LoginPage = () => {
                     Sign in with Google
                 </IconButton>
                 <span className="mt-4 flex gap-2 items-center justify-center">
-                    <p className="opacity-50">Don't have an account</p>{" "}
+                    <p className="opacity-50">Don&apos;t have an account</p>{" "}
                     <Link href={"/register"} className="opacity-100 underline">
                         Sign up
                     </Link>
