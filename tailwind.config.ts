@@ -17,9 +17,12 @@ const config: Config = {
                 neutral: "rgba(255, 255, 255, 0.5)",
                 background: "#131313",
                 base: "rgb(64, 64, 64)",
+                primaryLight: "#a8c8fa",
+                primaryDark: "#004075",
                 dark: {
                     100: "#1C2021",
                     200: "#272B2C",
+                    300: "#303030",
                     DEFAULT: "rgb(0, 0, 0)",
                 },
                 light: {

@@ -65,6 +65,7 @@ const PromptArea = (props: { value: string }) => {
             >
                 SEND
             </IconButton>
+            <span className="absolute w-full h-12 top-0 -translate-y-full left-0 right-0 bg-gradient-to-t from-light dark:from-background to-transparent"></span>
         </div>
     );
 };
