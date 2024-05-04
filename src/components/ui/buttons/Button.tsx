@@ -23,7 +23,7 @@ const Button = (props: IButton) => {
             type={props.type}
             onClick={props.onClick}
             className={cn(
-                "flex justify-center h-[42px] items-center rounded-full bg-[#004075] text-light dark:text-dark opacity-100 font-medium dark:bg-[#A8C8FA] px-6 hover:opacity-75 dark:hover:opacity-50",
+                "flex justify-center h-10 items-center rounded-full bg-[#004075] text-light dark:text-dark opacity-100 font-medium dark:bg-[#A8C8FA] px-6 hover:opacity-75 dark:hover:opacity-50",
                 props.className
             )}
         >
