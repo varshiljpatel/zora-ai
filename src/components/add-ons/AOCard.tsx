@@ -19,7 +19,7 @@ const AOCard = (props: {
                 </h2>
                 <p className="w-full">{props.description.trim()}</p>
                 <span className="align-middle flex items-center pt-4 text-[0.75rem] justify-between">
-                    Get started <KeyboardArrowRightSharp fontSize="small" />
+                    Get started <KeyboardArrowRightSharp />
                 </span>
             </Link>
         </div>
