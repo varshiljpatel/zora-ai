@@ -45,7 +45,7 @@ const BusinessName = (props: {
                 <Button
                     type="submit"
                     isLoading={loading}
-                    className="max-md:w-full mt-4"
+                    className="mt-4"
                 >
                     Next
                 </Button>
