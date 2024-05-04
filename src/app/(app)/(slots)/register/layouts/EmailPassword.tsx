@@ -54,7 +54,7 @@ const EmailPassword = (props: { onNext: (data: any) => void }) => {
                 <Button
                     type="submit"
                     isLoading={loading}
-                    className="max-md:w-full mt-4"
+                    className="mt-4"
                 >
                     Next
                 </Button>
