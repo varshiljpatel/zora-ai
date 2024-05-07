@@ -1,7 +1,7 @@
-import { IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import localFont from "next/font/local";
 
-export const sansSerifFont = localFont({
+export const sansSerifFontV2 = localFont({
     src: [
         {
             path: "../assets/fonts/HelveticaNeueCyr-Roman.woff2",
@@ -61,4 +61,11 @@ export const fontMono = IBM_Plex_Mono({
     style: "normal",
     subsets: ["latin"],
     variable: "--font-mono",
+});
+
+export const sansSerifFont = IBM_Plex_Sans({
+    weight: "400",
+    style: "normal",
+    subsets: ["latin"],
+    variable: "--font-sans",
 });
