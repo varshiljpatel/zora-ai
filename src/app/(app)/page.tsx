@@ -38,7 +38,7 @@ export default function Home() {
                 style={scrollnone}
                 className="w-full h-full overflow-scroll scroll-smooth flex"
             >
-                <div className="w-full mx-4 mt-20 m-auto flex flex-col items-center gap-y-0">
+                <div className="w-full mx-4 mt-16 m-auto flex flex-col items-center gap-y-4">
                     {/*<Vec1 height={200} />*/}
                     <span className="flex items-center justify-center p-4 bg-dark dark:bg-light rounded-full">
                         <SquareLogo
