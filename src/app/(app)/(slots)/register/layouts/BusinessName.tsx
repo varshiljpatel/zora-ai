@@ -36,17 +36,13 @@ const BusinessName = (props: {
                 className="max-w-lg items-end flex flex-col gap-y-6 w-full"
             >
                 <InputField
-                    other={register("businessNmae", {
+                    other={register("businessName", {
                         required: true,
                     })}
                     type="text"
                     placeholder="Enter business name here"
                 />
-                <Button
-                    type="submit"
-                    isLoading={loading}
-                    className="mt-4"
-                >
+                <Button type="submit" isLoading={loading} className="mt-4">
                     Next
                 </Button>
             </form>

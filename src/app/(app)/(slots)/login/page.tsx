@@ -18,10 +18,13 @@ const LoginPage = () => {
     const router: AppRouterInstance = useRouter();
 
     useEffect(() => {
-        if (session.status === "authenticated") {
-            router.replace("/");
+        if (localStorage.getItem("token")) {
+            return router.back();
         }
-    }, [session.status]);
+        if (session.status === "authenticated") {
+            return router.back();
+        }
+    }, [session.status, router]);
 
     const handleSignin = async (
         sso: LiteralUnion<BuiltInProviderType>,

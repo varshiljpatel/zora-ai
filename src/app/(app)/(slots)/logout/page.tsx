@@ -22,10 +22,13 @@ const LogoutPage = () => {
     };
 
     useEffect(() => {
-        if (session.status === "unauthenticated") {
-            router.back();
+        if (!localStorage.getItem("token")) {
+            return router.back();
         }
-    }, [session]);
+        if (session.status === "unauthenticated") {
+            return router.back();
+        }
+    }, [session, router]);
 
     return (
         <div className="flex flex-col h-full py-8 max-sm:px-4 items-center justify-center gap-y-16">

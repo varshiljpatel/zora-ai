@@ -13,7 +13,6 @@ const EmailPassword = (props: { onNext: (data: any) => void }) => {
 
     const onSubmit = async (data: any) => {
         setLoading(true);
-        console.log(data);
         await props.onNext(data);
         setLoading(false);
     };
@@ -51,11 +50,7 @@ const EmailPassword = (props: { onNext: (data: any) => void }) => {
                     type="password"
                     placeholder="Enter password here"
                 />
-                <Button
-                    type="submit"
-                    isLoading={loading}
-                    className="mt-4"
-                >
+                <Button type="submit" isLoading={loading} className="mt-4">
                     Next
                 </Button>
             </form>

@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* .blockScro {} */
+
 @layer components {
     ::selection {
         background-color: black;

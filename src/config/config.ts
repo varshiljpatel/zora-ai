@@ -1,5 +1,6 @@
 export const config = {
     googleApiKey: process.env.GOOGLE_API_KEY,
+    serverBaseUrl: process.env.SERVER_BASE_URL,
 
     // Google auth provider
     googleAuthProvider: {
