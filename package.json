@@ -26,6 +26,7 @@
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.1",
         "copy-to-clipboard": "^3.3.3",
+        "dotenv": "^16.4.5",
         "jotai": "^2.8.0",
         "lucide-react": "^0.378.0",
         "mongoose": "^8.3.2",

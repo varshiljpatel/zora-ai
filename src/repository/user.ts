@@ -9,13 +9,17 @@ export interface IUserCreate {
 }
 
 export class UserRepository {
-    static async createUser(data: IUserCreate) {
-        console.log(config.serverBaseUrl);
+    private static baseUrl: string = config.serverBaseUrl;
 
-        const response = await axios.post(
-            `${config.serverBaseUrl || "http://localhost:8080"}/user/register`,
-            data
-        );
-        console.log(response);
+    static async createUser(data: IUserCreate) {
+        try {
+            const response = await axios.post(
+                `${UserRepository.baseUrl}/user/register`,
+                data
+            );
+            return response;
+        } catch (error: Error | any) {
+            console.log("Something went wrong", error.message);
+        }
     }
 }

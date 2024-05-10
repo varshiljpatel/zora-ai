@@ -1,6 +1,11 @@
-export const config = {
+import * as dotenv from "dotenv";
+
+dotenv.config();
+
+const configMut = {
     googleApiKey: process.env.GOOGLE_API_KEY,
-    serverBaseUrl: process.env.SERVER_BASE_URL,
+    serverBaseUrl:
+        process.env.NODE_BASE_URL || "https://zora-node-s0w0.onrender.com",
 
     // Google auth provider
     googleAuthProvider: {
@@ -16,3 +21,5 @@ export const config = {
         mongodb: process.env.MONGODB_URI || "",
     },
 };
+
+export const config = Object.freeze(configMut);
