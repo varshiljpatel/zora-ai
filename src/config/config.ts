@@ -1,7 +1,3 @@
-import * as dotenv from "dotenv";
-
-dotenv.config();
-
 const configMut = {
     googleApiKey: process.env.GOOGLE_API_KEY,
     serverBaseUrl:
