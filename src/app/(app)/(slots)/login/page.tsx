@@ -60,7 +60,7 @@ const LoginPage = () => {
                     Sign in with Google
                 </IconButton>
                 <p className="mt-4 items-center justify-center">
-                    {"Don&apos;t have an account"}{" "}
+                    {"Don't have an account?"}{" "}
                     <Link
                         href={"/register"}
                         className="opacity-100 text-primaryDark dark:text-primaryLight underline"
