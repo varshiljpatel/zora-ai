@@ -10,6 +10,7 @@ import {
     useRouter,
     useSearchParams,
 } from "next/navigation";
+import { Suspense } from "react";
 import { register } from "./register";
 import { useSession } from "next-auth/react";
 import { stringConfig } from "@/config/strings";
@@ -56,6 +57,7 @@ const RegisterPage = () => {
     };
 
     return (
+        <Suspense>
         <div className="flex flex-col h-full py-8 max-sm:px-4 items-center justify-center gap-y-12">
             {step === 1 && <EmailPassword onNext={handleNext} />}
             {step === 2 && (
@@ -69,6 +71,7 @@ const RegisterPage = () => {
                 />
             )}
         </div>
+        </Suspense>
     );
 };
 
