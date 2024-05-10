@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import { Hourglass as Spinner } from "react-loader-spinner";
@@ -26,15 +27,15 @@ const IconButton = (props: IIconButton) => {
         } else {
             setWidth(props.width || width / 2);
         }
-    });
+    }, [width, props.width]);
 
     return (
         <button
-            style={{
-                backgroundColor: `${props.color || ""}`,
-            }}
             onClick={props.onClick}
-            className={`flex justify-center h-[42px] items-center gap-x-2 text-[14px] rounded-full transition-all bg-[#004075] text-white dark:text-dark font-medium dark:bg-[#A8C8FA] px-6 ${props.className}`}
+            className={cn(
+                "flex justify-center h-[42px] items-center gap-x-2 text-[14px] rounded-full transition-all bg-primaryDark text-white dark:text-dark font-medium dark:bg-primaryLight px-6",
+                props.className
+            )}
         >
             {props.isLoading ? (
                 <Spinner

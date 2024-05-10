@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import SquareLogo from "@/assets/logo/SquareLogo";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
+import { stringConfig } from "@/config/strings";
 
 export default function Home() {
     const [suggestions, setSuggestions] = useState<string[]>([]);
@@ -16,10 +17,11 @@ export default function Home() {
     const router = useRouter();
 
     useEffect(() => {
-        if (!localStorage.getItem("token")) {
+        if (!localStorage.getItem(stringConfig.localStorageToken)) {
             router.replace("/login");
+            return;
         }
-        (async () => {
+        const fetchData = async () => {
             const suggestionData = await fetch("/api/suggestions", {
                 method: "GET",
                 cache: "no-store",
@@ -32,14 +34,17 @@ export default function Home() {
                 .trim();
             let suggestionsArray: string[] = tunedSuggestions.split("||");
             setSuggestions(suggestionsArray);
-        })();
-        return;
-    });
+        };
+        let data: Promise<void> | null = fetchData();
+        return () => {
+            data = null;
+        };
+    }, [router]);
 
     return (
         <div className="h-dvh flex flex-col justify-between p-4">
             <Navbar />
-            <div className="w-full blockScroll h-full overflow-scroll scroll-smooth flex">
+            <div className="w-full blockScroll h-full overflow-y-scroll scroll-smooth flex">
                 <div className="w-full mx-4 mt-16 m-auto flex flex-col items-center gap-y-4">
                     {/*<Vec1 height={200} />*/}
                     <span className="flex items-center justify-center p-4 bg-dark dark:bg-light rounded-full">

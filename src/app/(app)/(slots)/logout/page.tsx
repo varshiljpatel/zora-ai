@@ -16,33 +16,36 @@ const LogoutPage = () => {
 
     const handleLogOut = async () => {
         setLoading(true);
-        await signOut();
+        if (session.status === "authenticated") {
+            await signOut();
+        } else {
+            await localStorage.removeItem(stringConfig.localStorageToken);
+        }
         setLoading(false);
         router.replace("/");
     };
 
     useEffect(() => {
-        if (!localStorage.getItem("token")) {
-            return router.back();
-        }
-        if (session.status === "unauthenticated") {
-            return router.back();
+        console.log(
+            "tokennnnn",
+            localStorage.getItem(stringConfig.localStorageToken)
+        );
+
+        if (
+            !localStorage.getItem(stringConfig.localStorageToken) &&
+            session.status === "unauthenticated"
+        ) {
+            return router.replace("/");
         }
     }, [session, router]);
 
     return (
-        <div className="flex flex-col h-full py-8 max-sm:px-4 items-center justify-center gap-y-16">
-            <span className="mb-4">
-                <SquareLogo
-                    color={useTheme().theme === "dark" ? "#fff" : "#000"}
-                    height={42}
-                />
-            </span>
+        <div className="flex flex-col h-full py-8 max-sm:px-4 items-center justify-center gap-y-12">
             <div className="flex flex-col gap-y-2 sm:max-w-md">
-                <p className="text-center text-[42px] font-normal tracking-tight">
+                <p className="text-center text-[2rem] font-normal tracking-tight">
                     {"Log out"}
                 </p>
-                <p className="text-center">
+                <p className="text-center opacity-50">
                     {`Log out from ${stringConfig.title}. You will log in any time and any where whenever you want after log out.`}
                 </p>
             </div>

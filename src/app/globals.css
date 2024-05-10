@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .blockScro {} */
+.blockScroll::-webkit-scrollbar {
+    display: none;
+}
 
 @layer components {
     ::selection {

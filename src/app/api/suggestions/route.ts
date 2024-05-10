@@ -1,4 +1,5 @@
 import { genAI } from "@/lib/geminiClient";
+import { sendResponse } from "@/lib/response/sendResponse";
 import {
     GenerateContentResult,
     // GenerateContentStreamResult,
@@ -30,17 +31,13 @@ export async function GET() {
 
     const response: GenerateContentResult = await model.generateContent(prompt);
 
-    if (response.response.candidates === undefined) return;
-    return Response.json(
-        {
-            success: true,
-            message:
-                response.response.candidates[0].content.parts[0].text?.toString(),
-        },
-        {
-            status: 200,
-        }
-    );
+    if (response.response.candidates![0].content.parts === undefined) return;
+    return sendResponse({
+        success: true,
+        message:
+            response.response.candidates![0].content?.parts[0]?.text?.toString(),
+        status: 200,
+    });
 
     // Stream a response
     // const response: GenerateContentStreamResult =

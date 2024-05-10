@@ -18,11 +18,11 @@ const LoginPage = () => {
     const router: AppRouterInstance = useRouter();
 
     useEffect(() => {
-        if (localStorage.getItem("token")) {
-            return router.back();
-        }
-        if (session.status === "authenticated") {
-            return router.back();
+        if (
+            localStorage.getItem(stringConfig.localStorageToken) ||
+            session.status === "authenticated"
+        ) {
+            return router.replace("/");
         }
     }, [session.status, router]);
 
@@ -32,6 +32,9 @@ const LoginPage = () => {
     ) => {
         setLoading(true);
         await signIn(sso, options);
+        if (session.status === "authenticated" || session.data) {
+            // Perform sso login task here
+        }
         setLoading(false);
     };
 
@@ -50,17 +53,21 @@ const LoginPage = () => {
                     onClick={() => handleSignin("google")}
                     displayText={true}
                     isLoading={loading}
-                    className="max-sm:w-full h-[42px] "
+                    color="white"
+                    className="max-sm:w-full h-[42px] bg-primaryDark dark:bg-light-100"
                     icon={<GoogleIcon />}
                 >
                     Sign in with Google
                 </IconButton>
-                <span className="mt-4 flex gap-2 items-center justify-center">
-                    <p className="opacity-50">Don&apos;t have an account</p>{" "}
-                    <Link href={"/register"} className="opacity-100 underline">
-                        Sign up
+                <p className="mt-4 items-center justify-center">
+                    {"Don&apos;t have an account"}{" "}
+                    <Link
+                        href={"/register"}
+                        className="opacity-100 text-primaryDark dark:text-primaryLight underline"
+                    >
+                        {"Sign up"}
                     </Link>
-                </span>
+                </p>
             </section>
         </div>
     );

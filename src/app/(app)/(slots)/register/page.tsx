@@ -10,6 +10,8 @@ import axios from "axios";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { config } from "@/config/config";
 import { register } from "./register";
+import { useSession } from "next-auth/react";
+import { stringConfig } from "@/config/strings";
 
 const stepAtom: PrimitiveAtom<number> = atom<number>(1);
 const formDataAtom: PrimitiveAtom<{}> = atom<{}>({});
@@ -18,10 +20,14 @@ const LoginPage = () => {
     const [step, setStep] = useAtom<number>(stepAtom);
     const [formData, setFormData] = useAtom<{}>(formDataAtom);
     const router: AppRouterInstance = useRouter();
+    const session = useSession();
 
     useEffect(() => {
-        if (localStorage.getItem("token")) {
-            return router.back();
+        if (
+            localStorage.getItem(stringConfig.localStorageToken) ||
+            session.status === "authenticated"
+        ) {
+            return router.replace("/");
         }
     });
 
