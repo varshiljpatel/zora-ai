@@ -34,7 +34,8 @@ const IconButton = (props: IIconButton) => {
             onClick={props.onClick}
             className={cn(
                 "flex justify-center h-[42px] items-center gap-x-2 text-[14px] rounded-full transition-all bg-primaryDark text-white dark:text-dark font-medium dark:bg-primaryLight px-6",
-                props.className
+                props.className,
+                `bg-[${props.color}]`
             )}
         >
             {props.isLoading ? (

@@ -1,5 +1,5 @@
 import { config } from "@/config/config";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
 export interface IUserCreate {
     email: string;
@@ -8,18 +8,27 @@ export interface IUserCreate {
     number: string;
 }
 
+export interface IUserLogin {
+    email: string;
+    password: string;
+}
+
 export class UserRepository {
     private static baseUrl: string = config.serverBaseUrl;
 
     static async createUser(data: IUserCreate) {
-        try {
-            const response = await axios.post(
-                `${UserRepository.baseUrl}/user/register`,
-                data
-            );
-            return response;
-        } catch (error: Error | any) {
-            console.log("Something went wrong", error.message);
-        }
+        const response: AxiosResponse<any, any> = await axios.post(
+            `${UserRepository.baseUrl}/user/register`,
+            data as IUserCreate
+        );
+        return response;
+    }
+
+    static async loginUser(data: IUserLogin) {
+        const response: AxiosResponse<any, any> = await axios.post(
+            `${UserRepository.baseUrl}/user/login`,
+            data as IUserLogin
+        );
+        return response;
     }
 }

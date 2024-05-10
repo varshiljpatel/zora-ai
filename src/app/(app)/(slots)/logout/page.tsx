@@ -26,11 +26,6 @@ const LogoutPage = () => {
     };
 
     useEffect(() => {
-        console.log(
-            "tokennnnn",
-            localStorage.getItem(stringConfig.localStorageToken)
-        );
-
         if (
             !localStorage.getItem(stringConfig.localStorageToken) &&
             session.status === "unauthenticated"

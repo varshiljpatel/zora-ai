@@ -5,10 +5,11 @@ import EmailPassword from "./layouts/EmailPassword";
 import { atom, PrimitiveAtom, useAtom } from "jotai";
 import MobileNo from "./layouts/MobileNo";
 import BusinessName from "./layouts/BusinessName";
-import { useRouter } from "next/navigation";
-import axios from "axios";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { config } from "@/config/config";
+import {
+    ReadonlyURLSearchParams as Params,
+    useRouter,
+    useSearchParams,
+} from "next/navigation";
 import { register } from "./register";
 import { useSession } from "next-auth/react";
 import { stringConfig } from "@/config/strings";
@@ -16,11 +17,16 @@ import { stringConfig } from "@/config/strings";
 const stepAtom: PrimitiveAtom<number> = atom<number>(1);
 const formDataAtom: PrimitiveAtom<{}> = atom<{}>({});
 
-const LoginPage = () => {
+const RegisterPage = () => {
     const [step, setStep] = useAtom<number>(stepAtom);
     const [formData, setFormData] = useAtom<{}>(formDataAtom);
-    const router: AppRouterInstance = useRouter();
+    const router = useRouter();
     const session = useSession();
+    const params: Params = useSearchParams();
+    const stepNo: string | null = params?.get("step");
+    if (stepNo) {
+        setStep(Number.parseInt(stepNo));
+    }
 
     useEffect(() => {
         if (
@@ -66,4 +72,4 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default RegisterPage;
