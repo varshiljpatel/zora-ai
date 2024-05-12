@@ -61,7 +61,7 @@ const MobileNavbar = (props: {
                     );
                 })}
                 <Link href={"/add-ons"} className="w-full">
-                    <div className="w-full border-2 border-dark dark:border-light rounded-full flex items-center justify-center h-[42px]">
+                    <div className="w-full border border-dark dark:border-primaryLight rounded-full flex items-center justify-center h-[42px]">
                         {"Add ons"}
                     </div>
                 </Link>
