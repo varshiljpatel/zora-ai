@@ -17,10 +17,15 @@ export default function Home() {
     const router = useRouter();
 
     useEffect(() => {
-        if (!localStorage.getItem(stringConfig.localStorageToken)) {
-            router.replace("/login");
-            return;
-        }
+        // =======================================================
+        // Uncomment this code when backend with session is ready.
+        // =======================================================
+        // if (!localStorage.getItem(stringConfig.localStorageToken)) {
+        //     router.replace("/login");
+        //     return;
+        // }
+        // =======================================================
+
         const fetchData = async () => {
             const suggestionData = await fetch("/api/suggestions", {
                 method: "GET",
