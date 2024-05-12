@@ -29,6 +29,8 @@ const RegisterPage = () => {
 
     useEffect(() => {
         if (stepNo) {
+            const stepNoInNumber: number = Number.parseInt(stepNo);
+            if (stepNoInNumber > 3 || stepNoInNumber < 1) return;
             setStep(Number.parseInt(stepNo));
         }
     }, [stepNo, setStep]);
