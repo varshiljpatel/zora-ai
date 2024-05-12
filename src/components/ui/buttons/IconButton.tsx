@@ -49,7 +49,7 @@ const IconButton = (props: IIconButton) => {
                 />
             ) : (
                 <>
-                    {props.icon && <span>{props.icon}</span>}
+                    {props.icon && <span className="flex items-center justify-center">{props.icon}</span>}
                     {props.devider &&
                     props.displayText &&
                     window.innerWidth >= 650 ? (
