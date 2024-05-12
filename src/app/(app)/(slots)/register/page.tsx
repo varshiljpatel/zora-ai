@@ -58,19 +58,27 @@ const RegisterPage = () => {
 
     return (
         <Suspense>
-        <div className="flex flex-col h-full py-8 max-sm:px-4 items-center justify-center gap-y-12">
-            {step === 1 && <EmailPassword onNext={handleNext} />}
-            {step === 2 && (
-                <BusinessName onNext={handleNext} onPrev={handlePrev} />
-            )}
-            {step === 3 && (
-                <MobileNo
-                    formData={formData}
-                    onNext={handleFormSubmit}
-                    onPrev={handlePrev}
-                />
-            )}
-        </div>
+            <div className="flex flex-col h-full py-8 max-sm:px-4 items-center justify-center gap-y-12">
+                {step === 1 && (
+                    <Suspense>
+                        <EmailPassword onNext={handleNext} />
+                    </Suspense>
+                )}
+                {step === 2 && (
+                    <Suspense>
+                        <BusinessName onNext={handleNext} onPrev={handlePrev} />
+                    </Suspense>
+                )}
+                {step === 3 && (
+                    <Suspense>
+                        <MobileNo
+                            formData={formData}
+                            onNext={handleFormSubmit}
+                            onPrev={handlePrev}
+                        />
+                    </Suspense>
+                )}
+            </div>
         </Suspense>
     );
 };
