@@ -14,6 +14,7 @@ import { Suspense } from "react";
 import { register } from "./register";
 import { useSession } from "next-auth/react";
 import { stringConfig } from "@/config/strings";
+import LoadingAnimation from "@/components/loading/LoadingAnimation";
 
 const stepAtom: PrimitiveAtom<number> = atom<number>(1);
 const formDataAtom: PrimitiveAtom<{}> = atom<{}>({});
@@ -25,9 +26,12 @@ const RegisterPage = () => {
     const session = useSession();
     const params: Params = useSearchParams();
     const stepNo: string | null = params?.get("step");
-    if (stepNo) {
-        setStep(Number.parseInt(stepNo));
-    }
+
+    useEffect(() => {
+        if (stepNo) {
+            setStep(Number.parseInt(stepNo));
+        }
+    }, [stepNo, setStep]);
 
     useEffect(() => {
         if (
@@ -36,7 +40,7 @@ const RegisterPage = () => {
         ) {
             return router.replace("/");
         }
-    });
+    }, [router, session.status]);
 
     const handleNext = (data: any) => {
         setFormData({ ...formData, ...data });
@@ -57,26 +61,18 @@ const RegisterPage = () => {
     };
 
     return (
-        <Suspense>
+        <Suspense fallback={<LoadingAnimation />}>
             <div className="flex flex-col h-full py-8 max-sm:px-4 items-center justify-center gap-y-12">
-                {step === 1 && (
-                    <Suspense>
-                        <EmailPassword onNext={handleNext} />
-                    </Suspense>
-                )}
+                {step === 1 && <EmailPassword onNext={handleNext} />}
                 {step === 2 && (
-                    <Suspense>
-                        <BusinessName onNext={handleNext} onPrev={handlePrev} />
-                    </Suspense>
+                    <BusinessName onNext={handleNext} onPrev={handlePrev} />
                 )}
                 {step === 3 && (
-                    <Suspense>
-                        <MobileNo
-                            formData={formData}
-                            onNext={handleFormSubmit}
-                            onPrev={handlePrev}
-                        />
-                    </Suspense>
+                    <MobileNo
+                        formData={formData}
+                        onNext={handleFormSubmit}
+                        onPrev={handlePrev}
+                    />
                 )}
             </div>
         </Suspense>
