@@ -4,7 +4,12 @@ import React, { useEffect, useState } from "react";
 import IconButton from "@/components/ui/buttons/IconButton";
 import GoogleIcon from "@/assets/icons/GoogleIcon";
 import { stringConfig } from "@/config/strings";
-import { LiteralUnion, signIn, useSession } from "next-auth/react";
+import {
+    LiteralUnion,
+    signIn,
+    SignInOptions,
+    useSession,
+} from "next-auth/react";
 import SquareLogo from "@/assets/logo/SquareLogo";
 import { BuiltInProviderType } from "next-auth/providers/index";
 import { useRouter } from "next/navigation";
@@ -18,23 +23,20 @@ const LoginPage = () => {
     const router: AppRouterInstance = useRouter();
 
     useEffect(() => {
-        if (
-            localStorage.getItem(stringConfig.localStorageToken) ||
-            session.status === "authenticated"
-        ) {
+        if (localStorage.getItem(stringConfig.localStorageToken))
             return router.replace("/");
+        if (session.status === "authenticated") {
+            // Process with session.data
+            // session.data.user?.email
         }
-    }, [session.status, router]);
+    }, [session, router]);
 
     const handleSignin = async (
         sso: LiteralUnion<BuiltInProviderType>,
-        options?: any
+        options?: SignInOptions
     ) => {
         setLoading(true);
         await signIn(sso, options);
-        if (session.status === "authenticated" || session.data) {
-            // Perform sso login task here
-        }
         setLoading(false);
     };
 
@@ -50,7 +52,9 @@ const LoginPage = () => {
             </div>
             <section className="w-full flex flex-col items-center justify-center">
                 <IconButton
-                    onClick={() => handleSignin("google")}
+                    onClick={async () => {
+                        await handleSignin("google");
+                    }}
                     displayText={true}
                     isLoading={loading}
                     color="white"
