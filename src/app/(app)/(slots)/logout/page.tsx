@@ -46,7 +46,7 @@ const LogoutPage = () => {
             </div>
             <IconButton
                 isLoading={loading}
-                className="max-sm:w-full h-[42px] dark:text-white"
+                className="max-sm:w-full h-[42px] text-white"
                 icon={<LogoutSharp fontSize="small" />}
                 color="#f00"
                 onClick={handleLogOut}
