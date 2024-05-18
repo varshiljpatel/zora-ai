@@ -1,7 +1,7 @@
 const configMut = {
     googleApiKey: process.env.GOOGLE_API_KEY,
     serverBaseUrl:
-        process.env.NODE_BASE_URL || "https://zora-node-s0w0.onrender.com",
+        process.env.NODE_BASE_URL || "https://zora-node-xlzi.onrender.com",
 
     // Google auth provider
     googleAuthProvider: {
