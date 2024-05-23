@@ -3,17 +3,17 @@
 import { EnumThemes } from "@/types/theme";
 import { DarkModeOutlined, LightModeSharp } from "@mui/icons-material";
 import { useTheme } from "next-themes";
-import React from "react";
-
-// interface IThemeToggler {
-//     theme?: string;
-//     setTheme: React.Dispatch<React.SetStateAction<string>>;
-// }
+import React, { useEffect, useState } from "react";
 
 const ThemeToggler = () => {
     const { theme, setTheme } = useTheme();
+    const [themeValue, setThemeValue] = useState<string>("");
 
-    return theme === "light" ? (
+    useEffect(() => {
+        setThemeValue(theme!);
+    }, [theme]);
+
+    return themeValue === "light" ? (
         <span onClick={() => setTheme(EnumThemes.Dark)}>
             <DarkModeOutlined />
         </span>

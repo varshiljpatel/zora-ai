@@ -12,11 +12,14 @@ import { stringConfig } from "@/config/strings";
 
 export default function Home() {
     const [suggestions, setSuggestions] = useState<string[]>([]);
-    const [textareaValue, setTextareaValue] = useState("");
+    const [textareaValue, setTextareaValue] = useState<string>("");
+    const { theme } = useTheme();
+    const [themeValue, setThemeValue] = useState<string>("");
     const updateTextareaValue = (value: string) => setTextareaValue(value);
     const router = useRouter();
 
     useEffect(() => {
+        setThemeValue(theme!);
         // =======================================================
         // Uncomment this code when backend with session is ready.
         // =======================================================
@@ -44,7 +47,7 @@ export default function Home() {
         return () => {
             data = null;
         };
-    }, [router]);
+    }, [router, theme]);
 
     return (
         <div className="h-dvh flex flex-col justify-between p-4">
@@ -55,9 +58,7 @@ export default function Home() {
                     <span className="flex items-center justify-center p-4 bg-dark dark:bg-light rounded-full">
                         <SquareLogo
                             color={
-                                useTheme().theme === "light"
-                                    ? "#ffffff"
-                                    : "#000000"
+                                themeValue === "light" ? "#ffffff" : "#000000"
                             }
                             height={30}
                         />

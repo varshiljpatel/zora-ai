@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "@/assets/logo/Logo";
 import Link from "next/link";
 import { Url } from "next/dist/shared/lib/router/router";
@@ -12,7 +12,12 @@ const MobileNavbar = (props: {
     navList: { text: string; path?: string }[];
 }) => {
     const [isVisible, setIsVisible] = useState(false);
-    const theme = useTheme().theme;
+    const [themeValue, setThemeValue] = useState<string>("");
+    const { theme } = useTheme();
+
+    useEffect(() => {
+        setThemeValue(theme!);
+    }, [theme]);
 
     const handleOnClick = async () => {
         await setIsVisible(!isVisible);
@@ -28,7 +33,7 @@ const MobileNavbar = (props: {
                 <Link href={"/"} onClick={() => setIsVisible(false)}>
                     <Logo
                         height={26}
-                        color={theme === "light" ? "#000000" : "#ffffff"}
+                        color={themeValue === "light" ? "#000000" : "#ffffff"}
                     />
                 </Link>
                 <div className="flex items-center gap-x-6">
