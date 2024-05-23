@@ -78,7 +78,7 @@ const PromptArea = (props: { value: string }) => {
                 value={promptValue}
                 onChange={handleTextareaChange}
                 placeholder="Enter email purpose..."
-                className="focus:border-dark px-6 py-2 flex flex-col justify-center outline-none blockScroll resize-none transition-all border-0 placeholder:text-dark dark:placeholder:text-neutral bg-light-100 dark:bg-dark-100 rounded-[32px] w-full"
+                className="focus:border-dark px-6 py-4 flex flex-col justify-center outline-none blockScroll resize-none transition-all border-0 placeholder:text-dark dark:placeholder:text-neutral bg-light-100 dark:bg-dark-100 rounded-[32px] w-full"
             ></textarea>
             <IconButton
                 icon={<Send fontSize="small" />}
