@@ -28,8 +28,7 @@ const NotFound404 = () => {
             </h1>
             <p className="text-center max-w-sm">
                 {stringConfig.title} couldn&apos;t find the page you were
-                looking for. {stringConfig.title} will redirects you to
-                {" "}<b>/</b>{" "}
+                looking for. {stringConfig.title} will redirects you to{" "}
                 <Link
                     href={"/"}
                     className="underline dark:text-primaryLight text-primaryDark underline-offset-4"
