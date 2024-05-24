@@ -16,16 +16,8 @@ const PromptArea = (props: { value: string }) => {
     const adjustTextareaHeight = () => {
         const textarea = textareaRef.current;
         if (textarea) {
-            textarea.style.height =
-                textarea.scrollHeight > 80 ? "auto" : "64px";
-            const newHeight = Math.min(
-                Math.max(
-                    textarea.scrollHeight > 80 ? textarea.scrollHeight : 64,
-                    64
-                ),
-                180
-            );
-            textarea.style.height = `${newHeight}px`;
+            textarea.style.height = "auto";
+            textarea.style.height = `${textarea.scrollHeight}px`;
         }
     };
     adjustTextareaHeight();
@@ -70,29 +62,32 @@ const PromptArea = (props: { value: string }) => {
     }, [promptValue]);
 
     return (
-        <div className="relative w-full max-md:p-2 max-md:pt-0 flex gap-x-4 items-center sm:gap-x-8">
-            <textarea
-                ref={textareaRef}
-                id="prommt"
-                rows={1}
-                value={promptValue}
-                onChange={handleTextareaChange}
-                placeholder="Enter email purpose..."
-                className="focus:border-dark px-6 py-4 flex flex-col justify-center outline-none blockScroll resize-none transition-all border-0 placeholder:text-dark dark:placeholder:text-neutral bg-light-100 dark:bg-dark-100 rounded-[32px] w-full"
-            ></textarea>
-            <IconButton
-                icon={<Send fontSize="small" />}
-                className={cn(
-                    "max-sm:h-[48px] max-sm:absolute max-sm:bottom-4 max-sm:right-4 max-sm:p-0 max-sm:w-[48px]",
-                    promptValue.length <= 0 ? "dark:bg-neutral bg-neutral" : ""
-                )}
-                onClick={handleOnClick}
-                isLoading={isLoading}
-            >
-                SEND
-            </IconButton>
-            <span className="absolute w-full h-12 top-0 -translate-y-full left-0 right-0 bg-gradient-to-t from-light dark:from-background to-transparent"></span>
-        </div>
+        <>
+            <div className="w-full relative rounded-[32px] p-2 flex gap-x-4 justify-between items-end md:gap-x-8 min-h-16 bg-light-100 flex-none dark:bg-dark-100 max-h-44">
+                <span className="w-full top-0 -translate-y-full absolute h-12 bg-gradient-to-t from-light dark:from-background to-transparent"></span>
+                <textarea
+                    ref={textareaRef}
+                    id="prommt"
+                    rows={1}
+                    value={promptValue}
+                    onChange={handleTextareaChange}
+                    placeholder="Enter email purpose..."
+                    className="overflow-y-auto outline-none blockScroll px-4 resize-none transition-all border-0 placeholder:text-dark min-h-full dark:placeholder:text-neutral bg-transparent w-full max-h-full"
+                ></textarea>
+                <IconButton
+                    icon={<Send fontSize="small" />}
+                    className={cn(
+                        "h-[48px] w-[48px]",
+                        promptValue.length <= 0
+                            ? "dark:bg-neutral bg-neutral"
+                            : ""
+                    )}
+                    onClick={handleOnClick}
+                    displayText={false}
+                    isLoading={isLoading}
+                ></IconButton>
+            </div>
+        </>
     );
 };
 
