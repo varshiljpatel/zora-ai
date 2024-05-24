@@ -63,7 +63,7 @@ const PromptArea = (props: { value: string }) => {
 
     return (
         <>
-            <div className="w-full relative rounded-[40px] md:p-4 p-2 flex gap-x-2 justify-between items-end md:gap-x-4 min-h-16 bg-light-100 flex-none dark:bg-dark-100 max-h-44">
+            <div className={cn("w-full relative rounded-[40px] md:p-4 p-2 flex gap-x-2 justify-between items-end md:gap-x-4 min-h-16 bg-light-100 flex-none dark:bg-dark-100 max-h-44", promptValue > 0 ? "bg-dark-200" : "")}>
                 <span className="w-full top-0 -translate-y-full absolute h-12 bg-gradient-to-t from-light dark:from-background to-transparent"></span>
                 <textarea
                     ref={textareaRef}
