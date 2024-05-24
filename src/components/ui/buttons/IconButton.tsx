@@ -33,7 +33,7 @@ const IconButton = (props: IIconButton) => {
         <button
             onClick={props.onClick}
             className={cn(
-                "flex justify-center h-[42px] items-center gap-x-2 text-[14px] rounded-full transition-all bg-primaryDark text-white dark:text-dark font-medium dark:bg-primaryLight px-6",
+                "flex justify-center gap-x-2 h-12 items-center font-medium text-[1rem] rounded-full transition-all bg-primaryDark text-white dark:text-dark dark:bg-primaryLight px-6",
                 props.className
             )}
         >
@@ -61,7 +61,7 @@ const IconButton = (props: IIconButton) => {
                         ""
                     )}
                     <span
-                        className={`sm:block ${props.displayText ? "" : "hidden"} font-medium`}
+                        className={`md:block ${props.displayText ? "" : "hidden"} font-medium`}
                     >
                         {props.children}
                     </span>

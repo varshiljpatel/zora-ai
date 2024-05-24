@@ -63,7 +63,7 @@ const PromptArea = (props: { value: string }) => {
 
     return (
         <>
-            <div className="w-full relative rounded-[32px] p-2 flex gap-x-4 justify-between items-end md:gap-x-8 min-h-16 bg-light-100 flex-none dark:bg-dark-100 max-h-44">
+            <div className="w-full relative rounded-[40px] md:p-4 p-2 flex gap-x-4 justify-between items-end md:gap-x-8 min-h-16 bg-light-100 flex-none dark:bg-dark-100 max-h-44">
                 <span className="w-full top-0 -translate-y-full absolute h-12 bg-gradient-to-t from-light dark:from-background to-transparent"></span>
                 <textarea
                     ref={textareaRef}
@@ -77,7 +77,7 @@ const PromptArea = (props: { value: string }) => {
                 <IconButton
                     icon={<Send fontSize="small" />}
                     className={cn(
-                        "h-[48px] w-[48px]",
+                        "w-12 gap-x-0",
                         promptValue.length <= 0
                             ? "dark:bg-neutral bg-neutral"
                             : ""
@@ -85,7 +85,7 @@ const PromptArea = (props: { value: string }) => {
                     onClick={handleOnClick}
                     displayText={false}
                     isLoading={isLoading}
-                ></IconButton>
+                />
             </div>
         </>
     );
