@@ -40,14 +40,16 @@ const IconButton = (props: IIconButton) => {
             )}
         >
             {props.isLoading ? (
-                <Spinner
-                    height={16}
-                    colors={[
-                        themeValue === "dark" ? "#000" : "#fff",
-                        themeValue === "dark" ? "#000" : "#fff",
-                    ]}
-                    width={16}
-                />
+                <span className="flex items-center justify-center">
+                    <Spinner
+                        height={16}
+                        colors={[
+                            themeValue === "dark" ? "#000" : "#fff",
+                            themeValue === "dark" ? "#000" : "#fff",
+                        ]}
+                        width={16}
+                    />
+                </span>
             ) : (
                 <>
                     {props.icon && (

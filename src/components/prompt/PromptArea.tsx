@@ -25,8 +25,8 @@ const PromptArea = (props: { value: string }) => {
     const handleOnClick = async () => {
         if (promptValue.length <= 0) return;
 
+        setIsLoading(true);
         try {
-            setIsLoading(true);
             const response = await fetch("/api/generate-email", {
                 method: "POST",
                 headers: {
@@ -41,8 +41,8 @@ const PromptArea = (props: { value: string }) => {
 
             const data = await response.json();
             await localStorage.setItem("email-data", data.message);
-            await router.push("/email");
-            setIsLoading(false);
+            // await router.push("/email");
+            // setIsLoading(false);
         } catch (error: any) {
             console.error("Error:", error.message);
             setIsLoading(false);
@@ -63,7 +63,12 @@ const PromptArea = (props: { value: string }) => {
 
     return (
         <>
-            <div className={cn("w-full relative rounded-[40px] md:p-4 p-2 flex gap-x-2 justify-between items-end md:gap-x-4 min-h-16 bg-light-100 flex-none dark:bg-dark-100 max-h-44", promptValue.length > 0 ? "dark:bg-dark-300" : "")}>
+            <div
+                className={cn(
+                    "w-full relative rounded-[40px] md:p-4 p-2 flex gap-x-2 justify-between items-end md:gap-x-4 min-h-16 bg-light-100 flex-none dark:bg-dark-100 max-h-44",
+                    promptValue.length > 0 ? "dark:bg-dark-300" : ""
+                )}
+            >
                 <span className="w-full top-0 -translate-y-full absolute h-12 bg-gradient-to-t from-light dark:from-background to-transparent"></span>
                 <textarea
                     ref={textareaRef}
@@ -83,7 +88,6 @@ const PromptArea = (props: { value: string }) => {
                             : ""
                     )}
                     onClick={handleOnClick}
-                    displayText={false}
                     isLoading={isLoading}
                 />
             </div>
