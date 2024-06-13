@@ -27,7 +27,7 @@ const CopyButton = (props: ICopyButton) => {
     return (
         <>
             <IconButton
-                devider={true}
+                divider={true}
                 onClick={handleClick}
                 icon={
                     isCopied ? (

@@ -11,7 +11,7 @@ interface IIconButton {
     color?: string;
     children?: React.ReactNode;
     width?: number;
-    devider?: boolean | undefined;
+    divider?: boolean | undefined;
     displayText?: boolean | undefined;
     className?: string;
     onClick?: React.MouseEventHandler;
@@ -19,15 +19,17 @@ interface IIconButton {
 
 const IconButton = (props: IIconButton) => {
     const [width, setWidth] = useState(200);
+    const [themeValue, setThemeValue] = useState<string>("");
     const { theme, setTheme } = useTheme();
 
     useEffect(() => {
+        setThemeValue(theme!);
         if (window.innerWidth >= 650) {
             setWidth(props.width || width);
         } else {
             setWidth(props.width || width / 2);
         }
-    }, [width, props.width]);
+    }, [width, props.width, theme]);
 
     return (
         <button
@@ -41,8 +43,8 @@ const IconButton = (props: IIconButton) => {
                 <Spinner
                     height={16}
                     colors={[
-                        theme === "dark" ? "#000" : "#fff",
-                        theme === "dark" ? "#000" : "#fff",
+                        themeValue === "dark" ? "#000" : "#fff",
+                        themeValue === "dark" ? "#000" : "#fff",
                     ]}
                     width={16}
                 />
@@ -53,7 +55,7 @@ const IconButton = (props: IIconButton) => {
                             {props.icon}
                         </span>
                     )}
-                    {props.devider &&
+                    {props.divider &&
                     props.displayText &&
                     window.innerWidth >= 650 ? (
                         <span className="w-[2px] mx-2 h-[24px] rounded-full bg-[rgba(255,255,255,0.5)]"></span>

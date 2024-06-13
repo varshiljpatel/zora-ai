@@ -67,7 +67,7 @@ const PromptArea = (props: { value: string }) => {
                 <span className="w-full top-0 -translate-y-full absolute h-12 bg-gradient-to-t from-light dark:from-background to-transparent"></span>
                 <textarea
                     ref={textareaRef}
-                    id="prommt"
+                    id="prompt"
                     rows={1}
                     value={promptValue}
                     onChange={handleTextareaChange}
