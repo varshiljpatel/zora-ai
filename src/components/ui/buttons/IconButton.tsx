@@ -11,13 +11,18 @@ interface IIconButton {
     color?: string;
     children?: React.ReactNode;
     width?: number;
+    disabled?: boolean;
     divider?: boolean | undefined;
     displayText?: boolean | undefined;
     className?: string;
     onClick?: React.MouseEventHandler;
 }
 
-const IconButton = (props: IIconButton) => {
+const IconButton = (
+    props: IIconButton = {
+        disabled: false,
+    }
+) => {
     const [width, setWidth] = useState(200);
     const [themeValue, setThemeValue] = useState<string>("");
     const { theme, setTheme } = useTheme();
@@ -33,13 +38,19 @@ const IconButton = (props: IIconButton) => {
 
     return (
         <button
-            onClick={props.onClick}
+            onClick={(e) => {
+                if (props.disabled) return;
+                return props.onClick?.(e);
+            }}
             className={cn(
-                "flex justify-center gap-x-2 h-12 items-center font-medium text-[1rem] rounded-full transition-all bg-primaryDark text-white dark:text-dark dark:bg-primaryLight px-6",
+                "flex justify-center gap-x-2 h-12 items-center font-medium text-[1rem] rounded-full transition-all text-white dark:text-dark px-6",
+                props.disabled
+                    ? "bg-neutral dark:bg-neutral"
+                    : "dark:bg-primaryLight bg-primaryDark",
                 props.className
             )}
         >
-            {props.isLoading ? (
+            {props.isLoading && !props.disabled ? (
                 <span className="flex items-center justify-center">
                     <Spinner
                         height={16}

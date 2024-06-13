@@ -5,22 +5,26 @@ import { stringConfig } from "@/config/strings";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const NotFound404 = () => {
     const router = useRouter();
+    const [themeValue, setThemeValue] = useState<string>("dark");
+    const { theme } = useTheme();
+
     useEffect(() => {
+        setThemeValue(theme!);
         setTimeout(() => {
             router.replace("/");
         }, 5000);
-    });
+    }, [router, theme]);
 
     return (
         <div className="h-dvh p-8 w-full flex flex-col items-center justify-center gap-y-8">
             <span>
                 <Logo
                     height={26}
-                    color={useTheme().theme === "dark" ? "#fff" : "#000"}
+                    color={themeValue === "dark" ? "#fff" : "#000"}
                 />
             </span>
             <h1 className="font-mono">

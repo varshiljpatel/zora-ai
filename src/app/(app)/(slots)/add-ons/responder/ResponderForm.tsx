@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import IconButton from "@/components/ui/buttons/IconButton";
 import { responderReceivedEmailStore } from "@/store/addOns/responder";
 import { useAtom } from "jotai";
+import { cn } from "@/lib/utils";
 
 const ResponderForm = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -46,8 +47,8 @@ const ResponderForm = () => {
                 <IconButton
                     onClick={handleOnClick}
                     isLoading={isLoading}
-                    color={value.length > 0 ? undefined : "#7f7f7f"}
                     displayText
+                    disabled={value.length > 0 ? false : true}
                 >
                     Generate reply
                 </IconButton>
