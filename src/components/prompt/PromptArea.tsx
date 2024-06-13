@@ -63,7 +63,7 @@ const PromptArea = (props: { value: string }) => {
 
     return (
         <>
-            <div className="w-full relative rounded-[40px] md:p-4 p-2 flex gap-x-4 justify-between items-end md:gap-x-8 min-h-16 bg-light-100 flex-none dark:bg-dark-100 max-h-44">
+            <div className={cn("w-full relative rounded-[40px] md:p-4 p-2 flex gap-x-2 justify-between items-end md:gap-x-4 min-h-16 bg-light-100 flex-none dark:bg-dark-100 max-h-44", promptValue.length > 0 ? "dark:bg-dark-300" : "")}>
                 <span className="w-full top-0 -translate-y-full absolute h-12 bg-gradient-to-t from-light dark:from-background to-transparent"></span>
                 <textarea
                     ref={textareaRef}
@@ -72,7 +72,7 @@ const PromptArea = (props: { value: string }) => {
                     value={promptValue}
                     onChange={handleTextareaChange}
                     placeholder="Enter email purpose..."
-                    className="overflow-y-auto outline-none blockScroll px-4 resize-none transition-all border-0 placeholder:text-dark min-h-full dark:placeholder:text-neutral bg-transparent w-full max-h-full"
+                    className="overflow-y-auto outline-none blockScroll p-4 py-2 resize-none transition-all border-0 placeholder:text-dark min-h-full dark:placeholder:text-neutral bg-transparent w-full max-h-full"
                 ></textarea>
                 <IconButton
                     icon={<Send fontSize="small" />}
