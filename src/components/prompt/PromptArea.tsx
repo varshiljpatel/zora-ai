@@ -41,8 +41,8 @@ const PromptArea = (props: { value: string }) => {
 
             const data = await response.json();
             await localStorage.setItem("email-data", data.message);
-            // await router.push("/email");
-            // setIsLoading(false);
+            await router.push("/email");
+            setIsLoading(false);
         } catch (error: any) {
             console.error("Error:", error.message);
             setIsLoading(false);
